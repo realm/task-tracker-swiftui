@@ -1,0 +1,80 @@
+//
+//  AddTeamMemberView.swift
+//  swiftui-realm
+//
+//  Created by Andrew Morgan on 30/10/2020.
+//
+
+import SwiftUI
+import RealmSwift
+
+struct AddTeamMemberView: View {
+    let refresh: () -> Void
+    @State var email = ""
+
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var state: AppState
+    @State var error: String?
+
+    private enum Dimensions {
+        static let padding: CGFloat = 16.0
+    }
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: Dimensions.padding) {
+                InputField(title: "email address to add",
+                           text: self.$email)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                CallToActionButton(
+                    title: "Add Team Member",
+                    action: { addTeamMember(email) })
+                if let error = error {
+                    Text("Error: \(error)")
+                        .foregroundColor(Color.red)
+                }
+            }
+            .navigationBarTitle(Text("Add Team Member"), displayMode: .inline)
+            .navigationBarItems(
+                leading: Button(
+                    action: { self.presentationMode.wrappedValue.dismiss() }) { Image(systemName: "xmark.circle") })
+            .padding(.horizontal, Dimensions.padding)
+        }
+    }
+
+    func addTeamMember(_ email: String) {
+        state.shouldIndicateActivity = true
+        error = nil
+        print("Adding member: \(email)")
+        guard let user = app.currentUser else {
+            state.shouldIndicateActivity = false
+            error = "Can't find current user"
+            return
+        }
+        user.functions.addTeamMember([AnyBSON(email)]) { (result, error) in
+            DispatchQueue.main.sync {
+                state.shouldIndicateActivity = false
+                if let error = error {
+                    self.error = "Internal error, failed to add member: \(error.localizedDescription)"
+                } else if let resultDocument = result?.documentValue {
+                    if let resultError = resultDocument["error"]??.stringValue {
+                        self.error = resultError
+                    } else {
+                        print("Added new team member")
+                        self.presentationMode.wrappedValue.dismiss()
+                        self.refresh()
+                    }
+                } else {
+                    self.error = "Unexpected result returned from server"
+                }
+            }
+        }
+    }
+}
+
+//struct AddTeamMemberView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddTeamMemberView()
+//    }
+//}

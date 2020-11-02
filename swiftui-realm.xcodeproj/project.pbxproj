@@ -1,0 +1,921 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31E58786C7FED52EAAC2F2F7 /* Pods_swiftui_realm_swiftui_realmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2848E740175A34EBCF73F4D /* Pods_swiftui_realm_swiftui_realmUITests.framework */; };
+		4933DFF7254A1DBF00B324B1 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933DFF6254A1DBF00B324B1 /* TasksView.swift */; };
+		4933DFFC254AF6A100B324B1 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933DFFB254AF6A100B324B1 /* TaskView.swift */; };
+		4933E00F254B06E300B324B1 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E00E254B06E300B324B1 /* AddTaskView.swift */; };
+		4933E029254B23C200B324B1 /* UpdateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E028254B23C200B324B1 /* UpdateTaskView.swift */; };
+		4933E034254B466600B324B1 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E033254B466600B324B1 /* TeamsView.swift */; };
+		4933E060254C44BB00B324B1 /* AddTeamMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E05F254C44B900B324B1 /* AddTeamMemberView.swift */; };
+		4933E06B254C5D0400B324B1 /* ManageTeamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E06A254C5D0400B324B1 /* ManageTeamButton.swift */; };
+		493F4165254A1466009AB5B0 /* LabeledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F4164254A1466009AB5B0 /* LabeledText.swift */; };
+		493F416A254A18A6009AB5B0 /* LabeledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F4169254A18A6009AB5B0 /* LabeledButton.swift */; };
+		49F0CB1C2547256800F8E644 /* swiftui_realmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB1B2547256800F8E644 /* swiftui_realmApp.swift */; };
+		49F0CB1E2547256800F8E644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB1D2547256800F8E644 /* ContentView.swift */; };
+		49F0CB202547256A00F8E644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F0CB1F2547256A00F8E644 /* Assets.xcassets */; };
+		49F0CB232547256A00F8E644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F0CB222547256A00F8E644 /* Preview Assets.xcassets */; };
+		49F0CB2E2547256B00F8E644 /* swiftui_realmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB2D2547256B00F8E644 /* swiftui_realmTests.swift */; };
+		49F0CB392547256B00F8E644 /* swiftui_realmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB382547256B00F8E644 /* swiftui_realmUITests.swift */; };
+		49F0CB5E25472F8A00F8E644 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB5D25472F8A00F8E644 /* Item.swift */; };
+		49F0CB662547304000F8E644 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB652547304000F8E644 /* Group.swift */; };
+		49F0CB6C25473D6300F8E644 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB6B25473D6300F8E644 /* AppState.swift */; };
+		49F0CB882547441D00F8E644 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB872547441D00F8E644 /* LoginView.swift */; };
+		49F0CB8D2547446B00F8E644 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CB8C2547446B00F8E644 /* LogoutButton.swift */; };
+		49F0CBA92547463F00F8E644 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBA82547463F00F8E644 /* ActivityIndicator.swift */; };
+		49F0CBBB254976E100F8E644 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBBA254976E100F8E644 /* InputField.swift */; };
+		49F0CBC3254977CE00F8E644 /* CaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBC2254977CE00F8E644 /* CaptionLabel.swift */; };
+		49F0CBC825497D7F00F8E644 /* CallToActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBC725497D7F00F8E644 /* CallToActionButton.swift */; };
+		49F0CBCD25498B9100F8E644 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBCC25498B9100F8E644 /* User.swift */; };
+		49F0CBD225498BB300F8E644 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBD125498BB300F8E644 /* Project.swift */; };
+		49F0CBD725498BD000F8E644 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CBD625498BD000F8E644 /* Task.swift */; };
+		49F0CBF825499B4300F8E644 /* swiftlint_config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 49F0CBF725499B4300F8E644 /* swiftlint_config.yaml */; };
+		49F0CC032549A4B200F8E644 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CC022549A4B200F8E644 /* SignupView.swift */; };
+		49F0CC0E2549B5DD00F8E644 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CC0D2549B5DD00F8E644 /* ProjectsView.swift */; };
+		49F0CC352549F3B400F8E644 /* Samplable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0CC342549F3B400F8E644 /* Samplable.swift */; };
+		D697C6E62CF42FCF67DFC800 /* Pods_swiftui_realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB90B91EAE18632A95C81496 /* Pods_swiftui_realm.framework */; };
+		ECC3B17FECA63F7CAF6F09C2 /* Pods_swiftui_realmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EA96233C6366197983961C /* Pods_swiftui_realmTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49F0CB2A2547256B00F8E644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F0CB102547256800F8E644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F0CB172547256800F8E644;
+			remoteInfo = "swiftui-realm";
+		};
+		49F0CB352547256B00F8E644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F0CB102547256800F8E644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F0CB172547256800F8E644;
+			remoteInfo = "swiftui-realm";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11EA96233C6366197983961C /* Pods_swiftui_realmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftui_realmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD9B87E6FD113184EB56C81 /* Pods-swiftui-realm-swiftui-realmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftui-realm-swiftui-realmUITests.release.xcconfig"; path = "Target Support Files/Pods-swiftui-realm-swiftui-realmUITests/Pods-swiftui-realm-swiftui-realmUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4933DFF6254A1DBF00B324B1 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		4933DFFB254AF6A100B324B1 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		4933E00E254B06E300B324B1 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		4933E028254B23C200B324B1 /* UpdateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskView.swift; sourceTree = "<group>"; };
+		4933E033254B466600B324B1 /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
+		4933E05F254C44B900B324B1 /* AddTeamMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberView.swift; sourceTree = "<group>"; };
+		4933E06A254C5D0400B324B1 /* ManageTeamButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamButton.swift; sourceTree = "<group>"; };
+		493F4164254A1466009AB5B0 /* LabeledText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledText.swift; sourceTree = "<group>"; };
+		493F4169254A18A6009AB5B0 /* LabeledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledButton.swift; sourceTree = "<group>"; };
+		49F0CB182547256800F8E644 /* swiftui-realm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-realm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F0CB1B2547256800F8E644 /* swiftui_realmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_realmApp.swift; sourceTree = "<group>"; };
+		49F0CB1D2547256800F8E644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		49F0CB1F2547256A00F8E644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49F0CB222547256A00F8E644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49F0CB242547256A00F8E644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F0CB292547256B00F8E644 /* swiftui-realmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swiftui-realmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F0CB2D2547256B00F8E644 /* swiftui_realmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_realmTests.swift; sourceTree = "<group>"; };
+		49F0CB2F2547256B00F8E644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F0CB342547256B00F8E644 /* swiftui-realmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swiftui-realmUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F0CB382547256B00F8E644 /* swiftui_realmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_realmUITests.swift; sourceTree = "<group>"; };
+		49F0CB3A2547256B00F8E644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F0CB5D25472F8A00F8E644 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		49F0CB652547304000F8E644 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		49F0CB6B25473D6300F8E644 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		49F0CB872547441D00F8E644 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		49F0CB8C2547446B00F8E644 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
+		49F0CBA82547463F00F8E644 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		49F0CBBA254976E100F8E644 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		49F0CBC2254977CE00F8E644 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
+		49F0CBC725497D7F00F8E644 /* CallToActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionButton.swift; sourceTree = "<group>"; };
+		49F0CBCC25498B9100F8E644 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		49F0CBD125498BB300F8E644 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		49F0CBD625498BD000F8E644 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		49F0CBF725499B4300F8E644 /* swiftlint_config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint_config.yaml; sourceTree = "<group>"; };
+		49F0CC022549A4B200F8E644 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		49F0CC0D2549B5DD00F8E644 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		49F0CC342549F3B400F8E644 /* Samplable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samplable.swift; sourceTree = "<group>"; };
+		592520ABCE9208DB57F9320C /* Pods-swiftui-realmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftui-realmTests.release.xcconfig"; path = "Target Support Files/Pods-swiftui-realmTests/Pods-swiftui-realmTests.release.xcconfig"; sourceTree = "<group>"; };
+		7999F997AE0F8EB52460B28C /* Pods-swiftui-realmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftui-realmTests.debug.xcconfig"; path = "Target Support Files/Pods-swiftui-realmTests/Pods-swiftui-realmTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B749596C0E7DF3AF7C810675 /* Pods-swiftui-realm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftui-realm.release.xcconfig"; path = "Target Support Files/Pods-swiftui-realm/Pods-swiftui-realm.release.xcconfig"; sourceTree = "<group>"; };
+		BB90B91EAE18632A95C81496 /* Pods_swiftui_realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftui_realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C39B60FBF1A049606C08E1F1 /* Pods-swiftui-realm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftui-realm.debug.xcconfig"; path = "Target Support Files/Pods-swiftui-realm/Pods-swiftui-realm.debug.xcconfig"; sourceTree = "<group>"; };
+		D2848E740175A34EBCF73F4D /* Pods_swiftui_realm_swiftui_realmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftui_realm_swiftui_realmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF6BAC1A2EBAB1AC3601DFAD /* Pods-swiftui-realm-swiftui-realmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftui-realm-swiftui-realmUITests.debug.xcconfig"; path = "Target Support Files/Pods-swiftui-realm-swiftui-realmUITests/Pods-swiftui-realm-swiftui-realmUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49F0CB152547256800F8E644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D697C6E62CF42FCF67DFC800 /* Pods_swiftui_realm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F0CB262547256B00F8E644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECC3B17FECA63F7CAF6F09C2 /* Pods_swiftui_realmTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F0CB312547256B00F8E644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31E58786C7FED52EAAC2F2F7 /* Pods_swiftui_realm_swiftui_realmUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4933E032254B464800B324B1 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				4933E033254B466600B324B1 /* TeamsView.swift */,
+				4933E05F254C44B900B324B1 /* AddTeamMemberView.swift */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		49F0CB0F2547256800F8E644 = {
+			isa = PBXGroup;
+			children = (
+				49F0CB1A2547256800F8E644 /* swiftui-realm */,
+				49F0CB2C2547256B00F8E644 /* swiftui-realmTests */,
+				49F0CB372547256B00F8E644 /* swiftui-realmUITests */,
+				49F0CB192547256800F8E644 /* Products */,
+				B190BA07559CDB6967761027 /* Pods */,
+				49F0CBF625499B0300F8E644 /* swiftlint */,
+				E66A39FEA3A515527BD183DC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		49F0CB192547256800F8E644 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB182547256800F8E644 /* swiftui-realm.app */,
+				49F0CB292547256B00F8E644 /* swiftui-realmTests.xctest */,
+				49F0CB342547256B00F8E644 /* swiftui-realmUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49F0CB1A2547256800F8E644 /* swiftui-realm */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB70254740CF00F8E644 /* Views */,
+				49F0CB6A25473D4900F8E644 /* View Model */,
+				49F0CB5C25472F6D00F8E644 /* Model */,
+				49F0CB1B2547256800F8E644 /* swiftui_realmApp.swift */,
+				49F0CB1F2547256A00F8E644 /* Assets.xcassets */,
+				49F0CB242547256A00F8E644 /* Info.plist */,
+				49F0CB212547256A00F8E644 /* Preview Content */,
+			);
+			path = "swiftui-realm";
+			sourceTree = "<group>";
+		};
+		49F0CB212547256A00F8E644 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB222547256A00F8E644 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		49F0CB2C2547256B00F8E644 /* swiftui-realmTests */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB2D2547256B00F8E644 /* swiftui_realmTests.swift */,
+				49F0CB2F2547256B00F8E644 /* Info.plist */,
+			);
+			path = "swiftui-realmTests";
+			sourceTree = "<group>";
+		};
+		49F0CB372547256B00F8E644 /* swiftui-realmUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB382547256B00F8E644 /* swiftui_realmUITests.swift */,
+				49F0CB3A2547256B00F8E644 /* Info.plist */,
+			);
+			path = "swiftui-realmUITests";
+			sourceTree = "<group>";
+		};
+		49F0CB5C25472F6D00F8E644 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB5D25472F8A00F8E644 /* Item.swift */,
+				49F0CB652547304000F8E644 /* Group.swift */,
+				49F0CBCC25498B9100F8E644 /* User.swift */,
+				49F0CBD125498BB300F8E644 /* Project.swift */,
+				49F0CBD625498BD000F8E644 /* Task.swift */,
+				49F0CC342549F3B400F8E644 /* Samplable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49F0CB6A25473D4900F8E644 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB6B25473D6300F8E644 /* AppState.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		49F0CB70254740CF00F8E644 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4933E032254B464800B324B1 /* Teams */,
+				49F0CB1D2547256800F8E644 /* ContentView.swift */,
+				49F0CBAD254974A500F8E644 /* Components */,
+				49F0CC082549A4E800F8E644 /* User Accounts */,
+				49F0CC0C2549B5AD00F8E644 /* Projects & Tasks */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49F0CBAD254974A500F8E644 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				493F4164254A1466009AB5B0 /* LabeledText.swift */,
+				49F0CBA82547463F00F8E644 /* ActivityIndicator.swift */,
+				49F0CBBA254976E100F8E644 /* InputField.swift */,
+				49F0CBC2254977CE00F8E644 /* CaptionLabel.swift */,
+				49F0CBC725497D7F00F8E644 /* CallToActionButton.swift */,
+				493F4169254A18A6009AB5B0 /* LabeledButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		49F0CBF625499B0300F8E644 /* swiftlint */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CBF725499B4300F8E644 /* swiftlint_config.yaml */,
+			);
+			path = swiftlint;
+			sourceTree = "<group>";
+		};
+		49F0CC082549A4E800F8E644 /* User Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				49F0CB872547441D00F8E644 /* LoginView.swift */,
+				49F0CB8C2547446B00F8E644 /* LogoutButton.swift */,
+				49F0CC022549A4B200F8E644 /* SignupView.swift */,
+			);
+			path = "User Accounts";
+			sourceTree = "<group>";
+		};
+		49F0CC0C2549B5AD00F8E644 /* Projects & Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				4933E06A254C5D0400B324B1 /* ManageTeamButton.swift */,
+				49F0CC0D2549B5DD00F8E644 /* ProjectsView.swift */,
+				4933DFF6254A1DBF00B324B1 /* TasksView.swift */,
+				4933DFFB254AF6A100B324B1 /* TaskView.swift */,
+				4933E00E254B06E300B324B1 /* AddTaskView.swift */,
+				4933E028254B23C200B324B1 /* UpdateTaskView.swift */,
+			);
+			path = "Projects & Tasks";
+			sourceTree = "<group>";
+		};
+		B190BA07559CDB6967761027 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C39B60FBF1A049606C08E1F1 /* Pods-swiftui-realm.debug.xcconfig */,
+				B749596C0E7DF3AF7C810675 /* Pods-swiftui-realm.release.xcconfig */,
+				EF6BAC1A2EBAB1AC3601DFAD /* Pods-swiftui-realm-swiftui-realmUITests.debug.xcconfig */,
+				3BD9B87E6FD113184EB56C81 /* Pods-swiftui-realm-swiftui-realmUITests.release.xcconfig */,
+				7999F997AE0F8EB52460B28C /* Pods-swiftui-realmTests.debug.xcconfig */,
+				592520ABCE9208DB57F9320C /* Pods-swiftui-realmTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E66A39FEA3A515527BD183DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB90B91EAE18632A95C81496 /* Pods_swiftui_realm.framework */,
+				D2848E740175A34EBCF73F4D /* Pods_swiftui_realm_swiftui_realmUITests.framework */,
+				11EA96233C6366197983961C /* Pods_swiftui_realmTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49F0CB172547256800F8E644 /* swiftui-realm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F0CB3D2547256B00F8E644 /* Build configuration list for PBXNativeTarget "swiftui-realm" */;
+			buildPhases = (
+				CAF0E480DD1445530D9E3013 /* [CP] Check Pods Manifest.lock */,
+				49F0CB142547256800F8E644 /* Sources */,
+				49F0CB152547256800F8E644 /* Frameworks */,
+				49F0CB162547256800F8E644 /* Resources */,
+				6070AE916CCB092378DB5180 /* [CP] Embed Pods Frameworks */,
+				49F0CBF425499A6E00F8E644 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swiftui-realm";
+			productName = "swiftui-realm";
+			productReference = 49F0CB182547256800F8E644 /* swiftui-realm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49F0CB282547256B00F8E644 /* swiftui-realmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F0CB402547256B00F8E644 /* Build configuration list for PBXNativeTarget "swiftui-realmTests" */;
+			buildPhases = (
+				30539B34A66737EA3D0D513B /* [CP] Check Pods Manifest.lock */,
+				49F0CB252547256B00F8E644 /* Sources */,
+				49F0CB262547256B00F8E644 /* Frameworks */,
+				49F0CB272547256B00F8E644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49F0CB2B2547256B00F8E644 /* PBXTargetDependency */,
+			);
+			name = "swiftui-realmTests";
+			productName = "swiftui-realmTests";
+			productReference = 49F0CB292547256B00F8E644 /* swiftui-realmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49F0CB332547256B00F8E644 /* swiftui-realmUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F0CB432547256B00F8E644 /* Build configuration list for PBXNativeTarget "swiftui-realmUITests" */;
+			buildPhases = (
+				334570621ACBB1F715ED3598 /* [CP] Check Pods Manifest.lock */,
+				49F0CB302547256B00F8E644 /* Sources */,
+				49F0CB312547256B00F8E644 /* Frameworks */,
+				49F0CB322547256B00F8E644 /* Resources */,
+				AE64F8E0DBA6736A812095CC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49F0CB362547256B00F8E644 /* PBXTargetDependency */,
+			);
+			name = "swiftui-realmUITests";
+			productName = "swiftui-realmUITests";
+			productReference = 49F0CB342547256B00F8E644 /* swiftui-realmUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49F0CB102547256800F8E644 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					49F0CB172547256800F8E644 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					49F0CB282547256B00F8E644 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 49F0CB172547256800F8E644;
+					};
+					49F0CB332547256B00F8E644 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 49F0CB172547256800F8E644;
+					};
+				};
+			};
+			buildConfigurationList = 49F0CB132547256800F8E644 /* Build configuration list for PBXProject "swiftui-realm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49F0CB0F2547256800F8E644;
+			productRefGroup = 49F0CB192547256800F8E644 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49F0CB172547256800F8E644 /* swiftui-realm */,
+				49F0CB282547256B00F8E644 /* swiftui-realmTests */,
+				49F0CB332547256B00F8E644 /* swiftui-realmUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49F0CB162547256800F8E644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F0CB232547256A00F8E644 /* Preview Assets.xcassets in Resources */,
+				49F0CB202547256A00F8E644 /* Assets.xcassets in Resources */,
+				49F0CBF825499B4300F8E644 /* swiftlint_config.yaml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F0CB272547256B00F8E644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F0CB322547256B00F8E644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30539B34A66737EA3D0D513B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftui-realmTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		334570621ACBB1F715ED3598 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftui-realm-swiftui-realmUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49F0CBF425499A6E00F8E644 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --path swiftui-realm --config \"${SRCROOT}/swiftlint/swiftlint_config.yaml\" \nelse\n  echo \"warning: SwiftLint not installed, run pod install\"\nfi\n";
+		};
+		6070AE916CCB092378DB5180 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftui-realm/Pods-swiftui-realm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftui-realm/Pods-swiftui-realm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftui-realm/Pods-swiftui-realm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE64F8E0DBA6736A812095CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftui-realm-swiftui-realmUITests/Pods-swiftui-realm-swiftui-realmUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftui-realm-swiftui-realmUITests/Pods-swiftui-realm-swiftui-realmUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftui-realm-swiftui-realmUITests/Pods-swiftui-realm-swiftui-realmUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAF0E480DD1445530D9E3013 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftui-realm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49F0CB142547256800F8E644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F0CC032549A4B200F8E644 /* SignupView.swift in Sources */,
+				49F0CBC825497D7F00F8E644 /* CallToActionButton.swift in Sources */,
+				49F0CB882547441D00F8E644 /* LoginView.swift in Sources */,
+				49F0CB1E2547256800F8E644 /* ContentView.swift in Sources */,
+				49F0CBCD25498B9100F8E644 /* User.swift in Sources */,
+				49F0CB6C25473D6300F8E644 /* AppState.swift in Sources */,
+				4933E06B254C5D0400B324B1 /* ManageTeamButton.swift in Sources */,
+				49F0CBA92547463F00F8E644 /* ActivityIndicator.swift in Sources */,
+				4933DFFC254AF6A100B324B1 /* TaskView.swift in Sources */,
+				49F0CB5E25472F8A00F8E644 /* Item.swift in Sources */,
+				4933E034254B466600B324B1 /* TeamsView.swift in Sources */,
+				49F0CB1C2547256800F8E644 /* swiftui_realmApp.swift in Sources */,
+				493F4165254A1466009AB5B0 /* LabeledText.swift in Sources */,
+				493F416A254A18A6009AB5B0 /* LabeledButton.swift in Sources */,
+				49F0CC0E2549B5DD00F8E644 /* ProjectsView.swift in Sources */,
+				49F0CBBB254976E100F8E644 /* InputField.swift in Sources */,
+				49F0CB8D2547446B00F8E644 /* LogoutButton.swift in Sources */,
+				49F0CB662547304000F8E644 /* Group.swift in Sources */,
+				49F0CBC3254977CE00F8E644 /* CaptionLabel.swift in Sources */,
+				4933E060254C44BB00B324B1 /* AddTeamMemberView.swift in Sources */,
+				49F0CBD225498BB300F8E644 /* Project.swift in Sources */,
+				4933DFF7254A1DBF00B324B1 /* TasksView.swift in Sources */,
+				49F0CBD725498BD000F8E644 /* Task.swift in Sources */,
+				49F0CC352549F3B400F8E644 /* Samplable.swift in Sources */,
+				4933E029254B23C200B324B1 /* UpdateTaskView.swift in Sources */,
+				4933E00F254B06E300B324B1 /* AddTaskView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F0CB252547256B00F8E644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F0CB2E2547256B00F8E644 /* swiftui_realmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F0CB302547256B00F8E644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F0CB392547256B00F8E644 /* swiftui_realmUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49F0CB2B2547256B00F8E644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F0CB172547256800F8E644 /* swiftui-realm */;
+			targetProxy = 49F0CB2A2547256B00F8E644 /* PBXContainerItemProxy */;
+		};
+		49F0CB362547256B00F8E644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F0CB172547256800F8E644 /* swiftui-realm */;
+			targetProxy = 49F0CB352547256B00F8E644 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49F0CB3B2547256B00F8E644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		49F0CB3C2547256B00F8E644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49F0CB3E2547256B00F8E644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C39B60FBF1A049606C08E1F1 /* Pods-swiftui-realm.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"swiftui-realm/Preview Content\"";
+				DEVELOPMENT_TEAM = CV5PJSAH7N;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "swiftui-realm/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clusterdb.swiftui-realm";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49F0CB3F2547256B00F8E644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B749596C0E7DF3AF7C810675 /* Pods-swiftui-realm.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"swiftui-realm/Preview Content\"";
+				DEVELOPMENT_TEAM = CV5PJSAH7N;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "swiftui-realm/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clusterdb.swiftui-realm";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		49F0CB412547256B00F8E644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7999F997AE0F8EB52460B28C /* Pods-swiftui-realmTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CV5PJSAH7N;
+				INFOPLIST_FILE = "swiftui-realmTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clusterdb.swiftui-realmTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swiftui-realm.app/swiftui-realm";
+			};
+			name = Debug;
+		};
+		49F0CB422547256B00F8E644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 592520ABCE9208DB57F9320C /* Pods-swiftui-realmTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CV5PJSAH7N;
+				INFOPLIST_FILE = "swiftui-realmTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clusterdb.swiftui-realmTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swiftui-realm.app/swiftui-realm";
+			};
+			name = Release;
+		};
+		49F0CB442547256B00F8E644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF6BAC1A2EBAB1AC3601DFAD /* Pods-swiftui-realm-swiftui-realmUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CV5PJSAH7N;
+				INFOPLIST_FILE = "swiftui-realmUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clusterdb.swiftui-realmUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "swiftui-realm";
+			};
+			name = Debug;
+		};
+		49F0CB452547256B00F8E644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BD9B87E6FD113184EB56C81 /* Pods-swiftui-realm-swiftui-realmUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CV5PJSAH7N;
+				INFOPLIST_FILE = "swiftui-realmUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clusterdb.swiftui-realmUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "swiftui-realm";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49F0CB132547256800F8E644 /* Build configuration list for PBXProject "swiftui-realm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F0CB3B2547256B00F8E644 /* Debug */,
+				49F0CB3C2547256B00F8E644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F0CB3D2547256B00F8E644 /* Build configuration list for PBXNativeTarget "swiftui-realm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F0CB3E2547256B00F8E644 /* Debug */,
+				49F0CB3F2547256B00F8E644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F0CB402547256B00F8E644 /* Build configuration list for PBXNativeTarget "swiftui-realmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F0CB412547256B00F8E644 /* Debug */,
+				49F0CB422547256B00F8E644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F0CB432547256B00F8E644 /* Build configuration list for PBXNativeTarget "swiftui-realmUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F0CB442547256B00F8E644 /* Debug */,
+				49F0CB452547256B00F8E644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49F0CB102547256800F8E644 /* Project object */;
+}
