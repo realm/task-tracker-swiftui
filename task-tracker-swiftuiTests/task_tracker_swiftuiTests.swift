@@ -1,14 +1,14 @@
 //
-//  swiftui_realmTests.swift
-//  swiftui-realmTests
+//  task_tracker_swiftuiTests.swift
+//  task-tracker-swiftuiTests
 //
-//  Created by Andrew Morgan on 26/10/2020.
+//  Created by Andrew Morgan on 03/11/2020.
 //
 
 import XCTest
-@testable import swiftui_realm
+@testable import task_tracker_swiftui
 
-class swiftui_realmTests: XCTestCase {
+class task_tracker_swiftuiTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

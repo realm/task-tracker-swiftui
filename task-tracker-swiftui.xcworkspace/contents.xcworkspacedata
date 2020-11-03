@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/andrew/src/swiftui-realm/swiftui-realm.xcodeproj">
+      location = "group:task-tracker-swiftui.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:swiftui-realm.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,21 +1,21 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '14.1'
 
-target 'swiftui-realm' do
+target 'task-tracker-swiftui' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for swiftui-realm
+  # Pods for task-tracker-swiftui
   pod 'Realm', '=10.1.1'
   pod 'RealmSwift', '=10.1.1'
   pod 'SwiftLint'
   
-  target 'swiftui-realmTests' do
+  target 'task-tracker-swiftuiTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'swiftui-realmUITests' do
+  target 'task-tracker-swiftuiUITests' do
     # Pods for testing
   end
 
