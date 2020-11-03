@@ -4,6 +4,13 @@
    <FileRef
       location = "group:task-tracker-swiftui.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:swiftlint"
+      name = "swiftlint">
+      <FileRef
+         location = "group:swiftlint_config.yaml">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
