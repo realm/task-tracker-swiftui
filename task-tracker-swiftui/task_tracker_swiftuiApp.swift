@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-let app = App(id: "myapp-xxxxxx") // TODO: Set the Realm application ID
+let app = App(id: "myapp-xxxxx") // TODO: Set the Realm application ID
 
 @main
 struct task_tracker_swiftuiApp: SwiftUI.App {

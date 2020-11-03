@@ -77,12 +77,12 @@ struct LoginView: View {
                                 }
                             case .success(let realm):
                                 print("Opened Realm")
+                                print("Realm is located at:", realm.configuration.fileURL!)
                                 let user = realm.objects(User.self).first
                                 if user == nil {
                                     print("Did not find a User Object")
                                 } else {
                                     print("Storing User")
-                                    //                                    self.state.currentUser =  user
                                     self.user =  user
                                 }
                             }

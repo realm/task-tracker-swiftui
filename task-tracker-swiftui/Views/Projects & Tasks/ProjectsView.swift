@@ -66,6 +66,7 @@ struct ProjectsView: View {
                 return
             case .success(let realm):
                 DispatchQueue.main.async {
+                    print("Realm is located at:", realm.configuration.fileURL!)
                     self.tasksRealm = realm
                     self.projectName = project.name ?? ""
                     self.showingTasks = true
