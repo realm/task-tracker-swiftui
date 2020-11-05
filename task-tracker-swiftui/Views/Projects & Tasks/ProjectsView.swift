@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct ProjectsView: View {
-    @ObservedObject var user: User
 
     @EnvironmentObject var state: AppState
 
@@ -24,14 +23,13 @@ struct ProjectsView: View {
 
     var body: some View {
         VStack(spacing: Dimensions.padding) {
-            if let projects = user.memberOf {
+            if let projects = state.user?.memberOf {
                 ForEach(projects, id: \.self) { project in
                     HStack {
                         LabeledButton(label: project.partition ?? "No partition",
                                       text: project.name ?? "No project name") {
                             showTasks(project)
                         }
-                        Spacer()
                     }
                 }
             }
@@ -52,35 +50,32 @@ struct ProjectsView: View {
         state.shouldIndicateActivity = true
         let realmConfig = app.currentUser?.configuration(partitionValue: project.partition ?? "")
         guard var config = realmConfig else {
-            print("Cannot get Realm config from current user")
+            state.error = "Cannot get Realm config from current user"
             return
         }
         config.objectTypes = [Task.self]
-        Realm.asyncOpen(configuration: config) { result in
-            switch result {
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    print("Couldn't open realm: \(error)")
-                    state.shouldIndicateActivity = false
+        Realm.asyncOpen(configuration: config)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { result in
+                state.shouldIndicateActivity = false
+                if case let .failure(error) = result {
+                    self.state.error = "Failed to open realm: \(error.localizedDescription)"
                 }
-                return
-            case .success(let realm):
-                DispatchQueue.main.async {
-                    print("Realm is located at:", realm.configuration.fileURL!)
-                    self.tasksRealm = realm
-                    self.projectName = project.name ?? ""
-                    self.showingTasks = true
-                    state.shouldIndicateActivity = false
-                }
-            }
-        }
+            }, receiveValue: { realm in
+                self.tasksRealm = realm
+                self.projectName = project.name ?? ""
+                self.showingTasks = true
+                state.shouldIndicateActivity = false
+            })
+            .store(in: &self.state.cancellables)
     }
 }
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        //        NavigationView {
-        ProjectsView(user: .sample)
-        //        }
+        NavigationView {
+            ProjectsView()
+        }
+            .environmentObject(AppState())
     }
 }

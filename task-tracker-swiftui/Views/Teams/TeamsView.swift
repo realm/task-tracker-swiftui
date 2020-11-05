@@ -15,7 +15,6 @@ struct TeamsView: View {
     @State var members: [Member] = []
     @State var showingAddTeamMember = false
     @State var lastUpdate: String?
-    @State var error: String?
 
     var body: some View {
         NavigationView {
@@ -27,10 +26,6 @@ struct TeamsView: View {
                     .onDelete(perform: removeTeamMember)
                 }
                 Spacer()
-                if let error = error {
-                    Text("Error: \(error)")
-                        .foregroundColor(Color.red)
-                }
                 if let lastUpdate = lastUpdate {
                     CaptionLabel(title: "Last updated \(lastUpdate)")
                 }
@@ -80,16 +75,16 @@ struct TeamsView: View {
             DispatchQueue.main.sync {
                 state.shouldIndicateActivity = false
                 if let error = error {
-                    self.error = "Internal error, failed to remove member: \(error.localizedDescription)"
+                    self.state.error = "Internal error, failed to remove member: \(error.localizedDescription)"
                 } else if let resultDocument = result?.documentValue {
                     if let resultError = resultDocument["error"]??.stringValue {
-                        self.error = resultError
+                        self.state.error = resultError
                     } else {
                         print("Removed team member")
                         self.fetchTeamMembers()
                     }
                 } else {
-                    self.error = "Unexpected result returned from server"
+                    self.state.error = "Unexpected result returned from server"
                 }
             }
         }
@@ -98,6 +93,12 @@ struct TeamsView: View {
 
 struct TeamsView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamsView()
+        Group {
+            TeamsView()
+                .environmentObject(AppState())
+            TeamsView()
+                .environmentObject(AppState())
+                .preferredColorScheme(.dark)
+        }
     }
 }

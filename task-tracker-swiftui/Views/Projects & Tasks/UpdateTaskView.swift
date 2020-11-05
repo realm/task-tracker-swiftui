@@ -13,7 +13,6 @@ struct UpdateTaskView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var state: AppState
-    @State var error: String?
 
     private enum Dimensions {
         static let padding: CGFloat = 16.0
@@ -44,10 +43,6 @@ struct UpdateTaskView: View {
                     }
                     Spacer()
                 }
-                if let error = error {
-                    Text("Error: \(error)")
-                        .foregroundColor(Color.red)
-                }
             }
             .navigationBarTitle(Text("Change Task Status"), displayMode: .inline)
             .navigationBarItems(
@@ -58,12 +53,11 @@ struct UpdateTaskView: View {
     }
 
     func updateStatus(_ newStatus: TaskStatus) {
-        error = nil
+        state.error = nil
         state.shouldIndicateActivity = true
         let realmConfig = app.currentUser?.configuration(partitionValue: task._partition)
         guard var config = realmConfig else {
-            print("Internal error - cannot get Realm config")
-            error = "Internal error - cannot get Realm config"
+            state.error = "Internal error - cannot get Realm config"
             state.shouldIndicateActivity = false
             return
         }
@@ -72,20 +66,18 @@ struct UpdateTaskView: View {
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    print("Couldn't open realm: \(error)")
-                    self.error = "Couldn't open realm: \(error)"
+                    self.state.error = "Couldn't open realm: \(error)"
                     state.shouldIndicateActivity = false
                 }
                 return
             case .success(let realm):
                 do {
                     try realm.write {
-                        //                        safeTask.statusEnum = newStatus
                         task.statusEnum = newStatus
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 } catch {
-                    print("Unable to open Realm write transaction")
+                    state.error = "Unable to open Realm write transaction"
                 }
             }
         }
@@ -94,6 +86,10 @@ struct UpdateTaskView: View {
 
 struct UpdateTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateTaskView(task: .sample)
+        Group {
+            UpdateTaskView(task: .sample)
+            UpdateTaskView(task: .sample)
+                .preferredColorScheme(.dark)
+        }
     }
 }

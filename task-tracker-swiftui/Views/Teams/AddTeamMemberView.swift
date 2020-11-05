@@ -14,7 +14,6 @@ struct AddTeamMemberView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var state: AppState
-    @State var error: String?
 
     private enum Dimensions {
         static let padding: CGFloat = 16.0
@@ -30,10 +29,6 @@ struct AddTeamMemberView: View {
                 CallToActionButton(
                     title: "Add Team Member",
                     action: { addTeamMember(email) })
-                if let error = error {
-                    Text("Error: \(error)")
-                        .foregroundColor(Color.red)
-                }
             }
             .navigationBarTitle(Text("Add Team Member"), displayMode: .inline)
             .navigationBarItems(
@@ -45,36 +40,42 @@ struct AddTeamMemberView: View {
 
     func addTeamMember(_ email: String) {
         state.shouldIndicateActivity = true
-        error = nil
+        state.error = nil
         print("Adding member: \(email)")
         guard let user = app.currentUser else {
             state.shouldIndicateActivity = false
-            error = "Can't find current user"
+            state.error = "Can't find current user"
             return
         }
         user.functions.addTeamMember([AnyBSON(email)]) { (result, error) in
             DispatchQueue.main.sync {
                 state.shouldIndicateActivity = false
                 if let error = error {
-                    self.error = "Internal error, failed to add member: \(error.localizedDescription)"
+                    self.state.error = "Internal error, failed to add member: \(error.localizedDescription)"
                 } else if let resultDocument = result?.documentValue {
                     if let resultError = resultDocument["error"]??.stringValue {
-                        self.error = resultError
+                        self.state.error = resultError
                     } else {
                         print("Added new team member")
                         self.presentationMode.wrappedValue.dismiss()
                         self.refresh()
                     }
                 } else {
-                    self.error = "Unexpected result returned from server"
+                    self.state.error = "Unexpected result returned from server"
                 }
             }
         }
     }
 }
 
-//struct AddTeamMemberView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddTeamMemberView()
-//    }
-//}
+struct AddTeamMemberView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            AddTeamMemberView(refresh: {})
+                .environmentObject(AppState())
+            AddTeamMemberView(refresh: {})
+                .environmentObject(AppState())
+                .preferredColorScheme(.dark)
+        }
+    }
+}

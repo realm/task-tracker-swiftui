@@ -17,11 +17,11 @@
 		494742A7255164A700FF9F51 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742A6255164A700FF9F51 /* TaskView.swift */; };
 		494742AC255164BC00FF9F51 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742AB255164BC00FF9F51 /* AddTaskView.swift */; };
 		494742B1255164D400FF9F51 /* UpdateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742B0255164D400FF9F51 /* UpdateTaskView.swift */; };
-		494742B72551657400FF9F51 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742B62551657400FF9F51 /* AppState.swift */; };
 		494742C0255165DA00FF9F51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742BF255165DA00FF9F51 /* User.swift */; };
 		494742C8255165EB00FF9F51 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742C7255165EB00FF9F51 /* Project.swift */; };
 		494742CD2551660400FF9F51 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742CC2551660400FF9F51 /* Task.swift */; };
 		494742D22551661600FF9F51 /* Samplable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742D12551661600FF9F51 /* Samplable.swift */; };
+		4982D43425540B1C00E874B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982D43325540B1C00E874B1 /* AppState.swift */; };
 		49CDF70D25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF70C25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift */; };
 		49CDF70F25515A5D00DCFB28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF70E25515A5D00DCFB28 /* ContentView.swift */; };
 		49CDF71125515A5F00DCFB28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CDF71025515A5F00DCFB28 /* Assets.xcassets */; };
@@ -70,11 +70,11 @@
 		494742A6255164A700FF9F51 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		494742AB255164BC00FF9F51 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		494742B0255164D400FF9F51 /* UpdateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskView.swift; sourceTree = "<group>"; };
-		494742B62551657400FF9F51 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		494742BF255165DA00FF9F51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		494742C7255165EB00FF9F51 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		494742CC2551660400FF9F51 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		494742D12551661600FF9F51 /* Samplable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samplable.swift; sourceTree = "<group>"; };
+		4982D43325540B1C00E874B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		49CDF70925515A5D00DCFB28 /* task-tracker-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "task-tracker-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDF70C25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tracker_swiftuiApp.swift; sourceTree = "<group>"; };
 		49CDF70E25515A5D00DCFB28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,14 +156,6 @@
 			path = "Projects & Tasks";
 			sourceTree = "<group>";
 		};
-		494742B52551655300FF9F51 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-				494742B62551657400FF9F51 /* AppState.swift */,
-			);
-			path = "View Model";
-			sourceTree = "<group>";
-		};
 		494742BE255165B000FF9F51 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +192,10 @@
 		49CDF70B25515A5D00DCFB28 /* task-tracker-swiftui */ = {
 			isa = PBXGroup;
 			children = (
-				494742922551640C00FF9F51 /* Views */,
-				494742B52551655300FF9F51 /* View Model */,
-				494742BE255165B000FF9F51 /* Model */,
 				49CDF70C25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift */,
+				4982D43325540B1C00E874B1 /* AppState.swift */,
+				494742922551640C00FF9F51 /* Views */,
+				494742BE255165B000FF9F51 /* Model */,
 				49CDF71025515A5F00DCFB28 /* Assets.xcassets */,
 				49CDF71525515A5F00DCFB28 /* Info.plist */,
 				49CDF71225515A5F00DCFB28 /* Preview Content */,
@@ -558,6 +550,7 @@
 				4947429D2551647400FF9F51 /* ProjectsView.swift in Sources */,
 				494742B1255164D400FF9F51 /* UpdateTaskView.swift in Sources */,
 				49CDF74625515CE300DCFB28 /* TeamsView.swift in Sources */,
+				4982D43425540B1C00E874B1 /* AppState.swift in Sources */,
 				49CDF74E25515D1100DCFB28 /* AddTeamMemberView.swift in Sources */,
 				494742CD2551660400FF9F51 /* Task.swift in Sources */,
 				494742AC255164BC00FF9F51 /* AddTaskView.swift in Sources */,
@@ -568,7 +561,6 @@
 				49CDF76625515DB000DCFB28 /* CaptionLabel.swift in Sources */,
 				49CDF76125515D9900DCFB28 /* InputField.swift in Sources */,
 				49474289255163CC00FF9F51 /* LogoutButton.swift in Sources */,
-				494742B72551657400FF9F51 /* AppState.swift in Sources */,
 				49CDF70D25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift in Sources */,
 				494742A7255164A700FF9F51 /* TaskView.swift in Sources */,
 				49474284255163AF00FF9F51 /* LoginView.swift in Sources */,

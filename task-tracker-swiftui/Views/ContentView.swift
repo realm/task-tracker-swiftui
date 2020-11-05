@@ -9,17 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var state: AppState
-    @State var user: User?
 
     var body: some View {
         NavigationView {
             ZStack {
-                if state.loggedIn && user != nil {
-                    if let user = user {
-                        ProjectsView(user: user)
+                VStack {
+                    if state.loggedIn && state.user != nil {
+                        if state.user != nil {
+                            ProjectsView()
+                        }
+                    } else {
+                        LoginView()
                     }
-                } else {
-                    LoginView(user: $user)
+                    Spacer()
+                    if let error = state.error {
+                        Text("Error: \(error)")
+                            .foregroundColor(Color.red)
+                    }
                 }
                 if state.shouldIndicateActivity {
                     ActivityIndicator()

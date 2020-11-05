@@ -11,7 +11,6 @@ import RealmSwift
 struct SignupView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var state: AppState
-    @State var error: String?
     @State private var username = ""
     @State private var password = ""
 
@@ -34,10 +33,6 @@ struct SignupView: View {
             CallToActionButton(
                 title: "Sign Up",
                 action: { self.signup(username: self.username, password: self.password) })
-            if let error = error {
-                Text("Error: \(error)")
-                    .foregroundColor(Color.red)
-            }
         }
         .padding(.horizontal, Dimensions.padding)
     }
@@ -46,35 +41,33 @@ struct SignupView: View {
         if username.isEmpty || password.isEmpty {
             return
         }
-        self.error = nil
+        self.state.error = nil
         state.shouldIndicateActivity = true
-        app.emailPasswordAuth.registerUser(email: username, password: password) { error in
-            DispatchQueue.main.sync {
+        app.emailPasswordAuth.registerUser(email: username, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
                 state.shouldIndicateActivity = false
-                if let error = error {
-                    print("Signup failed: \(error)")
-                    self.error = "Signup failed: \(error.localizedDescription)"
-                } else {
-                    print("Signup successful")
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.state.error = error.localizedDescription
                 }
+            }, receiveValue: {
+                self.state.error = nil
                 self.presentationMode.wrappedValue.dismiss()
-            }
-        }
+            })
+            .store(in: &state.cancellables)
     }
 }
 
 struct SignupView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NavigationView {
-                SignupView()
-                    .environmentObject(AppState())
-            }
-            .preferredColorScheme(.light)
-            NavigationView {
-                SignupView()
-                    .environmentObject(AppState())
-            }
+            SignupView()
+            .environmentObject(AppState())
+            SignupView()
+            .environmentObject(AppState())
             .preferredColorScheme(.dark)
         }
     }

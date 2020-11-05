@@ -12,8 +12,8 @@ struct AddTaskView: View {
     let realm: Realm
 
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var state: AppState
 
-    @State var error: String?
     @State var taskName = ""
 
     private enum Dimensions {
@@ -28,10 +28,7 @@ struct AddTaskView: View {
                 CallToActionButton(
                     title: "Add Task",
                     action: addTask)
-                if let error = error {
-                    Text("Error: \(error)")
-                        .foregroundColor(Color.red)
-                }
+                Spacer()
             }
             .navigationBarTitle(Text("Add Task"), displayMode: .inline)
             .navigationBarItems(
@@ -43,8 +40,7 @@ struct AddTaskView: View {
 
     func addTask() {
         guard let partition = realm.configuration.syncConfiguration?.partitionValue?.stringValue else {
-            print("Missing realm configuration")
-            error = "Internal error: missing Realm configuration"
+            state.error = "Internal error: missing Realm configuration"
             return
         }
         print("Adding new task: \(taskName) with partition \(partition)")
@@ -57,5 +53,11 @@ struct AddTaskView: View {
         } catch {
             print("Unable to open Realm write transaction")
         }
+    }
+}
+
+struct AddTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("Preview not available as have no access to a project realm")
     }
 }
