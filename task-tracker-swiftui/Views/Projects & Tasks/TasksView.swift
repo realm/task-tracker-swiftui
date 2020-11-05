@@ -12,6 +12,8 @@ struct TasksView: View {
     let realm: Realm
     let projectName: String
 
+    @EnvironmentObject var state: AppState
+
     @State var realmNotificationToken: NotificationToken?
     @State var tasks: Results<Task>?
     @State var lastUpdate: String?
@@ -31,7 +33,6 @@ struct TasksView: View {
             } else {
                 Text("Loading...")
             }
-            Spacer()
             if let lastUpdate = lastUpdate {
                 CaptionLabel(title: "Last updated \(lastUpdate)")
             }

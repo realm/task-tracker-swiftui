@@ -11,7 +11,6 @@ import RealmSwift
 struct SignupView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var state: AppState
-    @State var error: String?
     @State private var username = ""
     @State private var password = ""
 
@@ -34,10 +33,6 @@ struct SignupView: View {
             CallToActionButton(
                 title: "Sign Up",
                 action: { self.signup(username: self.username, password: self.password) })
-            if let error = error {
-                Text("Error: \(error)")
-                    .foregroundColor(Color.red)
-            }
         }
         .padding(.horizontal, Dimensions.padding)
     }
@@ -46,20 +41,35 @@ struct SignupView: View {
         if username.isEmpty || password.isEmpty {
             return
         }
-        self.error = nil
+        self.state.error = nil
         state.shouldIndicateActivity = true
-        app.emailPasswordAuth.registerUser(email: username, password: password) { error in
-            DispatchQueue.main.sync {
+        app.emailPasswordAuth.registerUser(email: username, password: password)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
                 state.shouldIndicateActivity = false
-                if let error = error {
-                    print("Signup failed: \(error)")
-                    self.error = "Signup failed: \(error.localizedDescription)"
-                } else {
-                    print("Signup successful")
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.state.error = error.localizedDescription
                 }
+            }, receiveValue: {
+                self.state.error = nil
                 self.presentationMode.wrappedValue.dismiss()
-            }
-        }
+            })
+            .store(in: &state.cancellables)
+//        app.emailPasswordAuth.registerUser(email: username, password: password) { error in
+//            DispatchQueue.main.sync {
+//                state.shouldIndicateActivity = false
+//                if let error = error {
+//                    print("Signup failed: \(error)")
+//                    self.state.error = "Signup failed: \(error.localizedDescription)"
+//                } else {
+//                    print("Signup successful")
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }
+//            }
+//        }
     }
 }
 

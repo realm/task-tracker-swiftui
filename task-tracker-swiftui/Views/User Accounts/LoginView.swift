@@ -9,10 +9,9 @@ import SwiftUI
 import RealmSwift
 
 struct LoginView: View {
-    @Binding var user: User?
+//    @Binding var user: User?
 
     @EnvironmentObject var state: AppState
-    @State var error: String?
     @State private var username = ""
     @State private var password = ""
 
@@ -36,12 +35,7 @@ struct LoginView: View {
                 destination: SignupView(),
                 label: {
                     Text("Register new user")
-                })
-            if let error = error {
-                Text("Error: \(error)")
-                    .foregroundColor(Color.red)
-            }
-        }
+                })        }
         .padding(.horizontal, Dimensions.padding)
     }
 
@@ -49,58 +43,33 @@ struct LoginView: View {
         if username.isEmpty || password.isEmpty {
             return
         }
-        self.error = nil
+        self.state.error = nil
         state.shouldIndicateActivity = true
-        app.login(credentials: .emailPassword(email: username, password: password)) { result in
-            DispatchQueue.main.async {
-                switch result {
+        app.login(credentials: .emailPassword(email: username, password: password))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                state.shouldIndicateActivity = false
+                switch $0 {
+                case .finished:
+                    break
                 case .failure(let error):
-                    self.state.shouldIndicateActivity = false
-                    print("Login failed: \(error)")
-                    self.error = "Login failed: \(error.localizedDescription)"
-                    return
-                case .success(let user):
-                    print("Logged in")
-                    var realmConfig = user.configuration(partitionValue: "user=\(user.id)")
-                    realmConfig.objectTypes = [User.self, Project.self]
-                    Realm.asyncOpen(configuration: realmConfig) { result in
-                        DispatchQueue.main.async {
-                            self.state.shouldIndicateActivity = false
-                            switch result {
-                            case .failure(let error):
-                                print("Failed to open Realm: \(error.localizedDescription)")
-                                self.error = "Failed to open Realm: \(error.localizedDescription)"
-                                user.logOut { error in
-                                    DispatchQueue.main.async {
-                                        self.error = "Failed to open Realm. Try logging in again"
-                                    }
-                                }
-                            case .success(let realm):
-                                print("Opened Realm")
-                                print("Realm is located at:", realm.configuration.fileURL!)
-                                let user = realm.objects(User.self).first
-                                if user == nil {
-                                    print("Did not find a User Object")
-                                } else {
-                                    print("Storing User")
-                                    self.user =  user
-                                }
-                            }
-                        }
-                    }
+                    self.state.error = error.localizedDescription
                 }
-            }
-        }
+            }, receiveValue: {
+                self.state.error = nil
+                state.loginPublisher.send($0)
+            })
+            .store(in: &state.cancellables)
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView(user: .constant(.sample))
+            LoginView()
                 .environmentObject(AppState())
                 .preferredColorScheme(.light)
-            LoginView(user: .constant(.sample))
+            LoginView()
                 .preferredColorScheme(.dark)
                 .environmentObject(AppState())
         }

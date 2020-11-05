@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-/// A button that handles logout requests.
 struct LogoutButton: View {
     @EnvironmentObject var state: AppState
     var body: some View {
         Button("Log Out") {
             state.shouldIndicateActivity = true
-            app.currentUser?.logOut { _ in
-                DispatchQueue.main.async {
-                    print("Logged out")
-                    self.state.shouldIndicateActivity = false
-                }
-            }
+            app.currentUser?.logOut()
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { _ in
+                }, receiveValue: {
+                    state.shouldIndicateActivity = false
+                    state.logoutPublisher.send($0)
+                })
+                .store(in: &state.cancellables)
         }
         .disabled(state.shouldIndicateActivity)
     }
