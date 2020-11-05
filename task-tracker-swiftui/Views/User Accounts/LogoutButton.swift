@@ -30,7 +30,6 @@ struct LogoutButton_Previews: PreviewProvider {
         Group {
             LogoutButton()
                 .environmentObject(AppState())
-                .preferredColorScheme(.light)
             LogoutButton()
                 .environmentObject(AppState())
                 .preferredColorScheme(.dark)

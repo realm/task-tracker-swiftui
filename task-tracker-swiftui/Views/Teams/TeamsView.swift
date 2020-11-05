@@ -93,6 +93,12 @@ struct TeamsView: View {
 
 struct TeamsView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamsView()
+        Group {
+            TeamsView()
+                .environmentObject(AppState())
+            TeamsView()
+                .environmentObject(AppState())
+                .preferredColorScheme(.dark)
+        }
     }
 }

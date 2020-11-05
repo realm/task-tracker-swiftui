@@ -77,7 +77,7 @@ struct UpdateTaskView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 } catch {
-                    print("Unable to open Realm write transaction")
+                    state.error = "Unable to open Realm write transaction"
                 }
             }
         }
@@ -86,6 +86,10 @@ struct UpdateTaskView: View {
 
 struct UpdateTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateTaskView(task: .sample)
+        Group {
+            UpdateTaskView(task: .sample)
+            UpdateTaskView(task: .sample)
+                .preferredColorScheme(.dark)
+        }
     }
 }

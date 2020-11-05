@@ -41,6 +41,10 @@ struct CallToActionButton: View {
 
 struct CallToActionButton_Previews: PreviewProvider {
     static var previews: some View {
-        CallToActionButton(title: "Button", showingArrow: true, action: {})
+        Group {
+            CallToActionButton(title: "Button", showingArrow: true, action: {})
+            CallToActionButton(title: "Button", showingArrow: true, action: {})
+                .preferredColorScheme(.dark)
+        }
     }
 }

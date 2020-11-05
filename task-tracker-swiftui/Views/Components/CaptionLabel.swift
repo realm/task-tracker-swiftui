@@ -24,6 +24,10 @@ struct CaptionLabel: View {
 
 struct CaptionLabel_Previews: PreviewProvider {
     static var previews: some View {
-        CaptionLabel(title: "Title")
+        Group {
+            CaptionLabel(title: "Title")
+            CaptionLabel(title: "Title")
+                .preferredColorScheme(.dark)
+        }
     }
 }

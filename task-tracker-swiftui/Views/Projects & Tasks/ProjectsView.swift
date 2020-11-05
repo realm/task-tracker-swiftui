@@ -30,10 +30,10 @@ struct ProjectsView: View {
                                       text: project.name ?? "No project name") {
                             showTasks(project)
                         }
-                        Spacer()
                     }
                 }
             }
+            Spacer()
             Button(action: { self.showingSheet = true }) { ManageTeamButton() }
             if let tasksRealm = tasksRealm {
                 NavigationLink( destination: TasksView(realm: tasksRealm, projectName: projectName),
@@ -73,8 +73,9 @@ struct ProjectsView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        //        NavigationView {
-        ProjectsView()
-        //        }
+        NavigationView {
+            ProjectsView()
+        }
+            .environmentObject(AppState())
     }
 }

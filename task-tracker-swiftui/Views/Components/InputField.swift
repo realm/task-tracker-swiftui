@@ -44,10 +44,8 @@ struct InputField_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             InputField(title: "Input", text: .constant("Data"))
-            VStack {
-                InputField(title: "Input secure", text: .constant("Data"), showingSecureField: true)
-            }
-            .preferredColorScheme(.dark)
+            InputField(title: "Input secure", text: .constant("Data"), showingSecureField: true)
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -68,8 +68,14 @@ struct AddTeamMemberView: View {
     }
 }
 
-//struct AddTeamMemberView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddTeamMemberView()
-//    }
-//}
+struct AddTeamMemberView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            AddTeamMemberView(refresh: {})
+                .environmentObject(AppState())
+            AddTeamMemberView(refresh: {})
+                .environmentObject(AppState())
+                .preferredColorScheme(.dark)
+        }
+    }
+}

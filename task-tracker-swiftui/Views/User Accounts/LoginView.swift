@@ -68,7 +68,6 @@ struct LoginView_Previews: PreviewProvider {
         Group {
             LoginView()
                 .environmentObject(AppState())
-                .preferredColorScheme(.light)
             LoginView()
                 .preferredColorScheme(.dark)
                 .environmentObject(AppState())

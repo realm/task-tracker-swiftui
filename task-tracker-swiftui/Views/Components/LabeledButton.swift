@@ -24,9 +24,7 @@ struct LabelledButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             LabeledButton(label: "My label", text: "My Text") { print("Tap") }
-            VStack {
-                LabeledButton(label: "My label", text: "My Text") { print("Tap") }
-            }
+            LabeledButton(label: "My label", text: "My Text") { print("Tap") }
             .preferredColorScheme(.dark)
         }
     }

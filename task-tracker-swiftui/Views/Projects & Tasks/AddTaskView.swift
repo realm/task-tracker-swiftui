@@ -55,3 +55,9 @@ struct AddTaskView: View {
         }
     }
 }
+
+struct AddTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("Preview not available as have no access to a project realm")
+    }
+}
