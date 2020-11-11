@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct LoginView: View {
-//    @Binding var user: User?
 
     @EnvironmentObject var state: AppState
     @State private var username = ""

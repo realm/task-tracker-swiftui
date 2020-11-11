@@ -37,7 +37,12 @@ struct TeamsView: View {
                 trailing: Button(action: { self.showingAddTeamMember = true }) { Image(systemName: "plus") }
             )
         }
-        .sheet(isPresented: $showingAddTeamMember) { AddTeamMemberView(refresh: fetchTeamMembers) }
+        .sheet(isPresented: $showingAddTeamMember) {
+            // TODO: Not clear why we need to pass in the environmentObject, appears that it may
+            // be a bug – should test again in the future.
+            AddTeamMemberView(refresh: fetchTeamMembers)
+                .environmentObject(state)
+        }
         .onAppear(perform: fetchTeamMembers)
     }
 
@@ -49,12 +54,11 @@ struct TeamsView: View {
             DispatchQueue.main.sync {
                 state.shouldIndicateActivity = false
                 guard error == nil else {
-                    print("Fetch team members failed: \(error!.localizedDescription)")
+                    state.error = "Fetch team members failed: \(error!.localizedDescription)"
                     return
                 }
-                print("Fetch team members complete.")
                 guard let result = result else {
-                    print("Result from fetching members is nil")
+                    state.error = "Result from fetching members is nil"
                     return
                 }
                 self.members = result.arrayValue!.map({ (bson) in

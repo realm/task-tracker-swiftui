@@ -47,7 +47,6 @@ struct TasksView: View {
     func loadData() {
         tasks = realm.objects(Task.self).sorted(byKeyPath: "_id")
         realmNotificationToken = realm.observe { _, _  in
-            print("Task change")
             let dateFormatter: DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             lastUpdate = dateFormatter.string(from: Date())
@@ -70,7 +69,7 @@ struct TasksView: View {
                 realm.delete(tasks[offsets.first!])
             }
         } catch {
-            print("Unable to open Realm write transaction")
+            state.error = "Unable to open Realm write transaction"
         }
     }
 }

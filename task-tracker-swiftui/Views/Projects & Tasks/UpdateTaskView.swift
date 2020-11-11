@@ -20,28 +20,38 @@ struct UpdateTaskView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: Dimensions.padding) {
-                Spacer()
-                if task.statusEnum != .Complete {
-                    CallToActionButton(
-                        title: "Complete Task") {
-                        updateStatus(.Complete)
+            ZStack {
+                VStack(spacing: Dimensions.padding) {
+                    Spacer()
+                    if task.statusEnum != .Complete {
+                        CallToActionButton(
+                            title: "Complete Task") {
+                            updateStatus(.Complete)
+                        }
+                        Spacer()
+                    }
+                    if task.statusEnum != .Open {
+                        CallToActionButton(
+                            title: "Re-open Task") {
+                            updateStatus(.Open)
+                        }
+                        Spacer()
+                    }
+                    if task.statusEnum != .InProgress {
+                        CallToActionButton(
+                            title: "Mark in Progress") {
+                            updateStatus(.InProgress)
+                        }
+                        Spacer()
                     }
                     Spacer()
+                    if let error = state.error {
+                        Text("Error: \(error)")
+                            .foregroundColor(Color.red)
+                    }
                 }
-                if task.statusEnum != .Open {
-                    CallToActionButton(
-                        title: "Re-open Task") {
-                        updateStatus(.Open)
-                    }
-                    Spacer()
-                }
-                if task.statusEnum != .InProgress {
-                    CallToActionButton(
-                        title: "Mark in Progress") {
-                        updateStatus(.InProgress)
-                    }
-                    Spacer()
+                if state.shouldIndicateActivity {
+                    ActivityIndicator()
                 }
             }
             .navigationBarTitle(Text("Change Task Status"), displayMode: .inline)

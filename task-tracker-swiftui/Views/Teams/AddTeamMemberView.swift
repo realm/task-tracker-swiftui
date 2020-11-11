@@ -21,14 +21,24 @@ struct AddTeamMemberView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: Dimensions.padding) {
-                InputField(title: "email address to add",
-                           text: self.$email)
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
-                CallToActionButton(
-                    title: "Add Team Member",
-                    action: { addTeamMember(email) })
+            ZStack {
+                VStack(spacing: Dimensions.padding) {
+                    InputField(title: "email address to add",
+                               text: self.$email)
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                    CallToActionButton(
+                        title: "Add Team Member",
+                        action: { addTeamMember(email) })
+                    Spacer()
+                    if let error = state.error {
+                        Text("Error: \(error)")
+                            .foregroundColor(Color.red)
+                    }
+                }
+                if state.shouldIndicateActivity {
+                    ActivityIndicator()
+                }
             }
             .navigationBarTitle(Text("Add Team Member"), displayMode: .inline)
             .navigationBarItems(
@@ -57,8 +67,8 @@ struct AddTeamMemberView: View {
                         self.state.error = resultError
                     } else {
                         print("Added new team member")
-                        self.presentationMode.wrappedValue.dismiss()
                         self.refresh()
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                 } else {
                     self.state.error = "Unexpected result returned from server"

@@ -22,17 +22,28 @@ struct SignupView: View {
     }
 
     var body: some View {
-        VStack(spacing: Dimensions.padding) {
-            InputField(title: "Email/Username",
-                       text: self.$username)
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
-            InputField(title: "Password",
-                       text: self.$password,
-                       showingSecureField: true)
-            CallToActionButton(
-                title: "Sign Up",
-                action: { self.signup(username: self.username, password: self.password) })
+        ZStack {
+            VStack(spacing: Dimensions.padding) {
+                InputField(title: "Email/Username",
+                           text: self.$username)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                InputField(title: "Password",
+                           text: self.$password,
+                           showingSecureField: true)
+                CallToActionButton(
+                    title: "Sign Up",
+                    action: { self.signup(username: self.username, password: self.password) })
+                Spacer()
+                Spacer()
+                if let error = state.error {
+                    Text("Error: \(error)")
+                        .foregroundColor(Color.red)
+                }
+            }
+            if state.shouldIndicateActivity {
+                ActivityIndicator()
+            }
         }
         .padding(.horizontal, Dimensions.padding)
     }

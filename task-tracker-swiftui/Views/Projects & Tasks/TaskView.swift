@@ -47,7 +47,6 @@ struct TaskView: View {
         }
         .padding(.horizontal, Dimensions.padding)
     }
-
 }
 
 struct TaskView_Previews: PreviewProvider {
@@ -59,8 +58,8 @@ struct TaskView_Previews: PreviewProvider {
 
         return Group {
             VStack {
-                TaskView(task: .sample)
-                TaskView(task: sample1)
+//                TaskView(task: .sample)
+//                TaskView(task: sample1)
                 TaskView(task: sample2)
             }
             VStack {
