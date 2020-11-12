@@ -64,12 +64,15 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            LoginView()
-                .environmentObject(AppState())
-            LoginView()
-                .preferredColorScheme(.dark)
-                .environmentObject(AppState())
-        }
+        AppearancePreviews(
+            Group {
+                LoginView()
+                    .environmentObject(AppState())
+                Landscape(
+                    LoginView()
+                        .environmentObject(AppState())
+                    )
+            }
+        )
     }
 }

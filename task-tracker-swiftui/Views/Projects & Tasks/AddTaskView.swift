@@ -22,13 +22,23 @@ struct AddTaskView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: Dimensions.padding) {
-                InputField(title: "New task name",
-                           text: self.$taskName)
-                CallToActionButton(
-                    title: "Add Task",
-                    action: addTask)
-                Spacer()
+            ZStack {
+                VStack(spacing: Dimensions.padding) {
+                    Spacer()
+                    InputField(title: "New task name",
+                               text: self.$taskName)
+                    CallToActionButton(
+                        title: "Add Task",
+                        action: addTask)
+                    Spacer()
+                    if let error = state.error {
+                        Text("Error: \(error)")
+                            .foregroundColor(Color.red)
+                    }
+                }
+                if state.shouldIndicateActivity {
+                    ActivityIndicator()
+                }
             }
             .navigationBarTitle(Text("Add Task"), displayMode: .inline)
             .navigationBarItems(
@@ -43,7 +53,6 @@ struct AddTaskView: View {
             state.error = "Internal error: missing Realm configuration"
             return
         }
-        print("Adding new task: \(taskName) with partition \(partition)")
         let task = Task(partition: partition, name: taskName)
         do {
             try realm.write {
@@ -51,13 +60,14 @@ struct AddTaskView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         } catch {
-            print("Unable to open Realm write transaction")
+            state.error = "Unable to open Realm write transaction"
         }
     }
 }
 
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Preview not available as have no access to a project realm")
+        AddTaskView(realm: .sample)
+            .environmentObject(AppState())
     }
 }

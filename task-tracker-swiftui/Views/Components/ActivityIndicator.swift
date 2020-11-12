@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// Simple activity indicator to telegraph that the app is active in the background.
 struct ActivityIndicator: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         return UIActivityIndicatorView(style: .large)
@@ -20,11 +19,8 @@ struct ActivityIndicator: UIViewRepresentable {
 
 struct ActivityIndicator_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        AppearancePreviews(
             ActivityIndicator()
-                .preferredColorScheme(.light)
-            ActivityIndicator()
-                .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-        }
+        )
     }
 }

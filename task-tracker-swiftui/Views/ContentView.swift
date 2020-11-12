@@ -38,13 +38,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-                .environmentObject(AppState())
-                .preferredColorScheme(.light)
-            ContentView()
-                .environmentObject(AppState())
-                .preferredColorScheme(.dark)
-        }
+        AppearancePreviews(
+            Group {
+                ContentView()
+                    .environmentObject(AppState())
+                Landscape(ContentView()
+                            .environmentObject(AppState()))
+            }
+        )
     }
 }

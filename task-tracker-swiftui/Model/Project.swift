@@ -16,12 +16,3 @@ class Project: EmbeddedObject {
         self.name = name
     }
 }
-
-extension Project: Samplable {
-    static var sample: Project {
-        let project = Project()
-        project.name = "My Project"
-        project.partition = "project=489375897238957"
-        return project
-    }
-}

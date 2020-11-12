@@ -56,18 +56,14 @@ struct TaskView_Previews: PreviewProvider {
         sample1.statusEnum = .InProgress
         sample2.statusEnum = .Complete
 
-        return Group {
-            VStack {
-//                TaskView(task: .sample)
-//                TaskView(task: sample1)
-                TaskView(task: sample2)
-            }
+        return AppearancePreviews(
             VStack {
                 TaskView(task: .sample)
                 TaskView(task: sample1)
                 TaskView(task: sample2)
             }
-            .preferredColorScheme(.dark)
-        }
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }

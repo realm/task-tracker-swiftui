@@ -25,10 +25,10 @@ struct ManageTeamButton: View {
 
 struct ManageTeamButton_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        AppearancePreviews(
             ManageTeamButton()
-            ManageTeamButton()
-                .preferredColorScheme(.dark)
-        }
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }

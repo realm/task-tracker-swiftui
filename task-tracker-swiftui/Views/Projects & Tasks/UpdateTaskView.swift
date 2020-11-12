@@ -28,21 +28,18 @@ struct UpdateTaskView: View {
                             title: "Complete Task") {
                             updateStatus(.Complete)
                         }
-                        Spacer()
                     }
                     if task.statusEnum != .Open {
                         CallToActionButton(
                             title: "Re-open Task") {
                             updateStatus(.Open)
                         }
-                        Spacer()
                     }
                     if task.statusEnum != .InProgress {
                         CallToActionButton(
                             title: "Mark in Progress") {
                             updateStatus(.InProgress)
                         }
-                        Spacer()
                     }
                     Spacer()
                     if let error = state.error {
@@ -98,8 +95,7 @@ struct UpdateTaskView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             UpdateTaskView(task: .sample)
-            UpdateTaskView(task: .sample)
-                .preferredColorScheme(.dark)
         }
+        .environmentObject(AppState())
     }
 }

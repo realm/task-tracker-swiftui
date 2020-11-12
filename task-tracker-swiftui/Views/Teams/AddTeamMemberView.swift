@@ -80,12 +80,15 @@ struct AddTeamMemberView: View {
 
 struct AddTeamMemberView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            AddTeamMemberView(refresh: {})
-                .environmentObject(AppState())
-            AddTeamMemberView(refresh: {})
-                .environmentObject(AppState())
-                .preferredColorScheme(.dark)
-        }
+        AppearancePreviews(
+            Group {
+                AddTeamMemberView(refresh: {})
+                    .environmentObject(AppState())
+                Landscape(
+                    AddTeamMemberView(refresh: {})
+                        .environmentObject(AppState())
+                )
+            }
+        )
     }
 }

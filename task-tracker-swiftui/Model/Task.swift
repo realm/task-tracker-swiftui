@@ -39,17 +39,6 @@ class Task: Object {
     }
 }
 
-extension Task: Samplable {
-    static var sample: Task {
-        let task = Task()
-        task.name = "My Task"
-        task._partition = "project=489375897238957"
-        task.owner = "Fred Flinstone"
-        task.status = "In progress"
-        return task
-    }
-}
-
 extension Task: Identifiable {
     var id: String {
         _id.stringValue
