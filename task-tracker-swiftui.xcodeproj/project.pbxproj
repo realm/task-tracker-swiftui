@@ -20,8 +20,10 @@
 		494742C0255165DA00FF9F51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742BF255165DA00FF9F51 /* User.swift */; };
 		494742C8255165EB00FF9F51 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742C7255165EB00FF9F51 /* Project.swift */; };
 		494742CD2551660400FF9F51 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742CC2551660400FF9F51 /* Task.swift */; };
-		494742D22551661600FF9F51 /* Samplable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494742D12551661600FF9F51 /* Samplable.swift */; };
 		4982D43425540B1C00E874B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982D43325540B1C00E874B1 /* AppState.swift */; };
+		49A7A380255D41B7008E9FA0 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7A37F255D41B7008E9FA0 /* SampleData.swift */; };
+		49A7A394255D42AB008E9FA0 /* PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7A393255D42AB008E9FA0 /* PreviewHelpers.swift */; };
+		49A7A399255D8A2D008E9FA0 /* SampleRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7A398255D8A2D008E9FA0 /* SampleRealm.swift */; };
 		49CDF70D25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF70C25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift */; };
 		49CDF70F25515A5D00DCFB28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF70E25515A5D00DCFB28 /* ContentView.swift */; };
 		49CDF71125515A5F00DCFB28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CDF71025515A5F00DCFB28 /* Assets.xcassets */; };
@@ -73,8 +75,10 @@
 		494742BF255165DA00FF9F51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		494742C7255165EB00FF9F51 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		494742CC2551660400FF9F51 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		494742D12551661600FF9F51 /* Samplable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samplable.swift; sourceTree = "<group>"; };
 		4982D43325540B1C00E874B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		49A7A37F255D41B7008E9FA0 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		49A7A393255D42AB008E9FA0 /* PreviewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelpers.swift; sourceTree = "<group>"; };
+		49A7A398255D8A2D008E9FA0 /* SampleRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRealm.swift; sourceTree = "<group>"; };
 		49CDF70925515A5D00DCFB28 /* task-tracker-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "task-tracker-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDF70C25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_tracker_swiftuiApp.swift; sourceTree = "<group>"; };
 		49CDF70E25515A5D00DCFB28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,7 +166,15 @@
 				494742BF255165DA00FF9F51 /* User.swift */,
 				494742C7255165EB00FF9F51 /* Project.swift */,
 				494742CC2551660400FF9F51 /* Task.swift */,
-				494742D12551661600FF9F51 /* Samplable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49A7A37E255D418E008E9FA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49A7A37F255D41B7008E9FA0 /* SampleData.swift */,
+				49A7A398255D8A2D008E9FA0 /* SampleRealm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,7 +218,9 @@
 		49CDF71225515A5F00DCFB28 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				49A7A37E255D418E008E9FA0 /* Model */,
 				49CDF71325515A5F00DCFB28 /* Preview Assets.xcassets */,
+				49A7A393255D42AB008E9FA0 /* PreviewHelpers.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -556,17 +570,19 @@
 				494742AC255164BC00FF9F51 /* AddTaskView.swift in Sources */,
 				49CDF70F25515A5D00DCFB28 /* ContentView.swift in Sources */,
 				49CDF77025515DDE00DCFB28 /* LabeledButton.swift in Sources */,
+				49A7A399255D8A2D008E9FA0 /* SampleRealm.swift in Sources */,
 				494742C8255165EB00FF9F51 /* Project.swift in Sources */,
 				49CDF76B25515DC700DCFB28 /* CallToActionButton.swift in Sources */,
 				49CDF76625515DB000DCFB28 /* CaptionLabel.swift in Sources */,
+				49A7A394255D42AB008E9FA0 /* PreviewHelpers.swift in Sources */,
 				49CDF76125515D9900DCFB28 /* InputField.swift in Sources */,
 				49474289255163CC00FF9F51 /* LogoutButton.swift in Sources */,
 				49CDF70D25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift in Sources */,
 				494742A7255164A700FF9F51 /* TaskView.swift in Sources */,
 				49474284255163AF00FF9F51 /* LoginView.swift in Sources */,
 				494742A22551649200FF9F51 /* TasksView.swift in Sources */,
+				49A7A380255D41B7008E9FA0 /* SampleData.swift in Sources */,
 				49CDF75C25515D8200DCFB28 /* ActivityIndicator.swift in Sources */,
-				494742D22551661600FF9F51 /* Samplable.swift in Sources */,
 				4947428E255163EB00FF9F51 /* SignupView.swift in Sources */,
 				49CDF75425515D6800DCFB28 /* LabeledText.swift in Sources */,
 				494742952551645C00FF9F51 /* ManageTeamButton.swift in Sources */,

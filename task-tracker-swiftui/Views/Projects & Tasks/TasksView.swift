@@ -76,6 +76,18 @@ struct TasksView: View {
 
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Preview not available as have no access to a project realm")
+        AppearancePreviews(
+            Group {
+                NavigationView {
+                    TasksView(realm: .sample, projectName: "Sample Project")
+                }
+                Landscape(
+                    NavigationView {
+                        TasksView(realm: .sample, projectName: "Sample Project")
+                    }
+                )
+            }
+        )
+        .environmentObject(AppState())
     }
 }

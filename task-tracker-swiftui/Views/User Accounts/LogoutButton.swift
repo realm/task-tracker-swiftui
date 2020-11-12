@@ -27,12 +27,11 @@ struct LogoutButton: View {
 
 struct LogoutButton_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        AppearancePreviews(
             LogoutButton()
                 .environmentObject(AppState())
-            LogoutButton()
-                .environmentObject(AppState())
-                .preferredColorScheme(.dark)
-        }
+                .previewLayout(.sizeThatFits)
+                .padding()
+        )
     }
 }

@@ -74,12 +74,15 @@ struct SignupView: View {
 
 struct SignupView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            SignupView()
-            .environmentObject(AppState())
-            SignupView()
-            .environmentObject(AppState())
-            .preferredColorScheme(.dark)
-        }
+        AppearancePreviews(
+            Group {
+                SignupView()
+                .environmentObject(AppState())
+                Landscape(
+                    SignupView()
+                        .environmentObject(AppState())
+                )
+            }
+        )
     }
 }

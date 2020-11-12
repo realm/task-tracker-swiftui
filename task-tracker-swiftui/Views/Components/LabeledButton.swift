@@ -22,10 +22,10 @@ struct LabeledButton: View {
 
 struct LabelledButton_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            LabeledButton(label: "My label", text: "My Text") { print("Tap") }
-            LabeledButton(label: "My label", text: "My Text") { print("Tap") }
-            .preferredColorScheme(.dark)
-        }
+        AppearancePreviews(
+            LabeledButton(label: "My label", text: "My Text") {}
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }

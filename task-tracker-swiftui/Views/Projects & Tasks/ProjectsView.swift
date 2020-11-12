@@ -73,9 +73,21 @@ struct ProjectsView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ProjectsView()
-        }
-            .environmentObject(AppState())
+        let state = AppState()
+        state.user = .sample
+
+        return AppearancePreviews(
+                Group {
+                    NavigationView {
+                        ProjectsView()
+                    }
+                    Landscape(
+                        NavigationView {
+                            ProjectsView()
+                        }
+                    )
+                }
+                .environmentObject(state)
+            )
     }
 }

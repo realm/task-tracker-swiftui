@@ -25,16 +25,13 @@ struct LabeledText: View {
 
 struct LabeledText_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        AppearancePreviews(
             HStack(alignment: .top) {
                 LabeledText(label: "Label", text: "0.72367628765")
                 LabeledText(label: "Date", text: "")
             }
-            HStack(alignment: .top) {
-                LabeledText(label: "Label", text: "0.72367628765")
-                LabeledText(label: "Date", text: "")
-            }
-            .preferredColorScheme(.dark)
-        }
+            .previewLayout(.sizeThatFits)
+            .padding()
+        )
     }
 }

@@ -42,10 +42,13 @@ struct InputField: View {
 
 struct InputField_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            InputField(title: "Input", text: .constant("Data"))
-            InputField(title: "Input secure", text: .constant("Data"), showingSecureField: true)
-                .preferredColorScheme(.dark)
-        }
+        AppearancePreviews(
+            Group {
+                InputField(title: "Input", text: .constant("Data"))
+                InputField(title: "Input secure", text: .constant("Data"), showingSecureField: true)
+            }
+            .previewLayout(.sizeThatFits)
+            .padding()
+        )
     }
 }
