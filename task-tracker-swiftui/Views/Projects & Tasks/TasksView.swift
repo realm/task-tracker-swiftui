@@ -34,7 +34,6 @@ struct TasksView: View {
                 Text("Loading...")
             }
             if let lastUpdate = lastUpdate {
-                Text("Change")
                 LastUpdate(date: lastUpdate)
             }
         }
