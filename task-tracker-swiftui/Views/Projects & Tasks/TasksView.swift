@@ -16,7 +16,7 @@ struct TasksView: View {
 
     @State var realmNotificationToken: NotificationToken?
     @State var tasks: Results<Task>?
-    @State var lastUpdate: String?
+    @State var lastUpdate: Date?
     @State var showingSheet = false
 
     var body: some View {
@@ -34,7 +34,8 @@ struct TasksView: View {
                 Text("Loading...")
             }
             if let lastUpdate = lastUpdate {
-                CaptionLabel(title: "Last updated \(lastUpdate)")
+                Text("Change")
+                LastUpdate(date: lastUpdate)
             }
         }
         .navigationBarTitle("Tasks in \(projectName)", displayMode: .inline)
@@ -51,9 +52,7 @@ struct TasksView: View {
     func loadData() {
         tasks = realm.objects(Task.self).sorted(byKeyPath: "_id")
         realmNotificationToken = realm.observe { _, _  in
-            let dateFormatter: DateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            lastUpdate = dateFormatter.string(from: Date())
+            lastUpdate = Date()
         }
     }
 

@@ -37,6 +37,7 @@
 		49CDF76625515DB000DCFB28 /* CaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF76525515DB000DCFB28 /* CaptionLabel.swift */; };
 		49CDF76B25515DC700DCFB28 /* CallToActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */; };
 		49CDF77025515DDE00DCFB28 /* LabeledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF76F25515DDE00DCFB28 /* LabeledButton.swift */; };
+		49F2187D2562DC7A00EFDE0B /* LastUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F2187C2562DC7A00EFDE0B /* LastUpdate.swift */; };
 		51084F48300AC6D03757C3B6 /* Pods_task_tracker_swiftui_task_tracker_swiftuiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC69DDC42998E660E737A641 /* Pods_task_tracker_swiftui_task_tracker_swiftuiUITests.framework */; };
 		FAE3B1C9D8F9A8D267E25D50 /* Pods_task_tracker_swiftui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F33C0A83A43F0E7C0A887F1 /* Pods_task_tracker_swiftui.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		49CDF76525515DB000DCFB28 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
 		49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionButton.swift; sourceTree = "<group>"; };
 		49CDF76F25515DDE00DCFB28 /* LabeledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledButton.swift; sourceTree = "<group>"; };
+		49F2187C2562DC7A00EFDE0B /* LastUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdate.swift; sourceTree = "<group>"; };
 		67E8664D207CB5A653880BC4 /* Pods-task-tracker-swiftui-task-tracker-swiftuiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task-tracker-swiftui-task-tracker-swiftuiUITests.release.xcconfig"; path = "Target Support Files/Pods-task-tracker-swiftui-task-tracker-swiftuiUITests/Pods-task-tracker-swiftui-task-tracker-swiftuiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A51CC2F41779CBBE42E0CB71 /* Pods-task-tracker-swiftui-task-tracker-swiftuiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task-tracker-swiftui-task-tracker-swiftuiUITests.debug.xcconfig"; path = "Target Support Files/Pods-task-tracker-swiftui-task-tracker-swiftuiUITests/Pods-task-tracker-swiftui-task-tracker-swiftuiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE0175324FB02C26F33D9EEC /* Pods_task_tracker_swiftuiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_task_tracker_swiftuiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +267,7 @@
 				49CDF76525515DB000DCFB28 /* CaptionLabel.swift */,
 				49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */,
 				49CDF76F25515DDE00DCFB28 /* LabeledButton.swift */,
+				49F2187C2562DC7A00EFDE0B /* LastUpdate.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				49CDF76B25515DC700DCFB28 /* CallToActionButton.swift in Sources */,
 				49CDF76625515DB000DCFB28 /* CaptionLabel.swift in Sources */,
 				49A7A394255D42AB008E9FA0 /* PreviewHelpers.swift in Sources */,
+				49F2187D2562DC7A00EFDE0B /* LastUpdate.swift in Sources */,
 				49CDF76125515D9900DCFB28 /* InputField.swift in Sources */,
 				49474289255163CC00FF9F51 /* LogoutButton.swift in Sources */,
 				49CDF70D25515A5D00DCFB28 /* task_tracker_swiftuiApp.swift in Sources */,

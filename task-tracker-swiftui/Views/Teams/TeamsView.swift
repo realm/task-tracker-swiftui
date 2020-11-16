@@ -14,7 +14,6 @@ struct TeamsView: View {
 
     @State var members: [Member] = []
     @State var showingAddTeamMember = false
-    @State var lastUpdate: String?
 
     var body: some View {
         NavigationView {
@@ -26,9 +25,6 @@ struct TeamsView: View {
                     .onDelete(perform: removeTeamMember)
                 }
                 Spacer()
-                if let lastUpdate = lastUpdate {
-                    CaptionLabel(title: "Last updated \(lastUpdate)")
-                }
             }
             .navigationBarTitle(Text("My Team"), displayMode: .inline)
             .navigationBarItems(
@@ -66,9 +62,6 @@ struct TeamsView: View {
                 self.members = result.arrayValue!.map({ (bson) in
                     return Member(document: bson!.documentValue!)
                 })
-                let dateFormatter: DateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                lastUpdate = dateFormatter.string(from: Date())
             }
         }
     }
