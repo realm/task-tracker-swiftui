@@ -20,6 +20,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack(spacing: Dimensions.padding) {
+            Spacer()
             InputField(title: "Email/Username",
                        text: self.$username)
                 .keyboardType(.emailAddress)
@@ -34,7 +35,9 @@ struct LoginView: View {
                 destination: SignupView(),
                 label: {
                     Text("Register new user")
-                })        }
+                })
+            Spacer()
+        }
         .padding(.horizontal, Dimensions.padding)
     }
 

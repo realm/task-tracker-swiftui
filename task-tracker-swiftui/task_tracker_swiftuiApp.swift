@@ -12,7 +12,7 @@ let app = App(id: "tasktracker-xxxxxx") // TODO: Set the Realm application ID
 
 @main
 struct task_tracker_swiftuiApp: SwiftUI.App {
-    @ObservedObject var state = AppState()
+    let state = AppState()
 
     var body: some Scene {
         WindowGroup {

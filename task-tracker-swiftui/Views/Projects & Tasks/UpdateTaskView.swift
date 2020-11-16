@@ -81,6 +81,7 @@ struct UpdateTaskView: View {
                 do {
                     try realm.write {
                         task.statusEnum = newStatus
+                        state.shouldIndicateActivity = false
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 } catch {

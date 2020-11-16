@@ -23,6 +23,7 @@ struct AddTeamMemberView: View {
         NavigationView {
             ZStack {
                 VStack(spacing: Dimensions.padding) {
+                    Spacer()
                     InputField(title: "email address to add",
                                text: self.$email)
                         .keyboardType(.emailAddress)
@@ -51,7 +52,6 @@ struct AddTeamMemberView: View {
     func addTeamMember(_ email: String) {
         state.shouldIndicateActivity = true
         state.error = nil
-        print("Adding member: \(email)")
         guard let user = app.currentUser else {
             state.shouldIndicateActivity = false
             state.error = "Can't find current user"
