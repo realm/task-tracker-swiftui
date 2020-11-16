@@ -34,7 +34,9 @@ struct TeamsView: View {
             .navigationBarItems(
                 leading: Button(
                     action: { self.presentationMode.wrappedValue.dismiss() }) { Image(systemName: "xmark.circle") },
-                trailing: Button(action: { self.showingAddTeamMember = true }) { Image(systemName: "plus") }
+                trailing: Button(action: { self.showingAddTeamMember = true }) { Image(systemName: "plus.circle.fill")
+                    .renderingMode(.original)
+                }
             )
         }
         .sheet(isPresented: $showingAddTeamMember) {

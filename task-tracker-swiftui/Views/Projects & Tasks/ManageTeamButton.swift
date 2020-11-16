@@ -11,7 +11,8 @@ struct ManageTeamButton: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "person.3")
+            Image(systemName: "person.crop.circle.fill.badge.plus")
+                .renderingMode(.original)
             Text("Manage Team")
         }
     }

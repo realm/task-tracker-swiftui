@@ -38,7 +38,11 @@ struct TasksView: View {
             }
         }
         .navigationBarTitle("Tasks in \(projectName)", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: { self.showingSheet = true }) { Image(systemName: "plus") })
+        .navigationBarItems(trailing: Button(action: { self.showingSheet = true }) {
+            Image(systemName: "plus.circle.fill")
+                .renderingMode(.original)
+
+        })
         .sheet(isPresented: $showingSheet) { AddTaskView(realm: realm) }
         .onAppear(perform: loadData)
         .onDisappear(perform: stopWatching)
