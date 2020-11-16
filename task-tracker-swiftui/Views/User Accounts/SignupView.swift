@@ -42,7 +42,7 @@ struct SignupView: View {
                 }
             }
             if state.shouldIndicateActivity {
-                ActivityIndicator()
+                ProgressView("Signing Up User")
             }
         }
         .padding(.horizontal, Dimensions.padding)

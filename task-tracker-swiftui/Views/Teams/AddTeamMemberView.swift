@@ -38,7 +38,7 @@ struct AddTeamMemberView: View {
                     }
                 }
                 if state.shouldIndicateActivity {
-                    ActivityIndicator()
+                    ProgressView("Adding Team Member")
                 }
             }
             .navigationBarTitle(Text("Add Team Member"), displayMode: .inline)

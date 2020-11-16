@@ -33,7 +33,6 @@
 		49CDF74625515CE300DCFB28 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF74525515CE300DCFB28 /* TeamsView.swift */; };
 		49CDF74E25515D1100DCFB28 /* AddTeamMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF74D25515D1100DCFB28 /* AddTeamMemberView.swift */; };
 		49CDF75425515D6800DCFB28 /* LabeledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF75325515D6800DCFB28 /* LabeledText.swift */; };
-		49CDF75C25515D8200DCFB28 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF75B25515D8200DCFB28 /* ActivityIndicator.swift */; };
 		49CDF76125515D9900DCFB28 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF76025515D9900DCFB28 /* InputField.swift */; };
 		49CDF76625515DB000DCFB28 /* CaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF76525515DB000DCFB28 /* CaptionLabel.swift */; };
 		49CDF76B25515DC700DCFB28 /* CallToActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */; };
@@ -94,7 +93,6 @@
 		49CDF74525515CE300DCFB28 /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
 		49CDF74D25515D1100DCFB28 /* AddTeamMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberView.swift; sourceTree = "<group>"; };
 		49CDF75325515D6800DCFB28 /* LabeledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledText.swift; sourceTree = "<group>"; };
-		49CDF75B25515D8200DCFB28 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		49CDF76025515D9900DCFB28 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		49CDF76525515DB000DCFB28 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
 		49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionButton.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				49CDF75325515D6800DCFB28 /* LabeledText.swift */,
-				49CDF75B25515D8200DCFB28 /* ActivityIndicator.swift */,
 				49CDF76025515D9900DCFB28 /* InputField.swift */,
 				49CDF76525515DB000DCFB28 /* CaptionLabel.swift */,
 				49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */,
@@ -582,7 +579,6 @@
 				49474284255163AF00FF9F51 /* LoginView.swift in Sources */,
 				494742A22551649200FF9F51 /* TasksView.swift in Sources */,
 				49A7A380255D41B7008E9FA0 /* SampleData.swift in Sources */,
-				49CDF75C25515D8200DCFB28 /* ActivityIndicator.swift in Sources */,
 				4947428E255163EB00FF9F51 /* SignupView.swift in Sources */,
 				49CDF75425515D6800DCFB28 /* LabeledText.swift in Sources */,
 				494742952551645C00FF9F51 /* ManageTeamButton.swift in Sources */,
