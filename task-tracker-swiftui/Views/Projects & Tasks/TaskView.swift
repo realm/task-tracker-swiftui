@@ -20,25 +20,22 @@ struct TaskView: View {
     var body: some View {
         Button(action: { self.showingUpdateSheet = true }) {
             HStack(spacing: Dimensions.padding) {
-                if task.statusEnum == .Complete {
+                switch task.statusEnum {
+                case .Complete:
                     Text(task.name)
                         .strikethrough()
                         .foregroundColor(.gray)
-                }
-                if task.statusEnum == .InProgress {
-                    Text(task.name)
-                        .fontWeight(.bold)
-                }
-                if task.statusEnum == .Open {
-                    Text(task.name)
-                }
-                Spacer()
-                if task.statusEnum == .Complete {
+                    Spacer()
                     Image(systemName: "checkmark.square")
                         .foregroundColor(.gray)
-                }
-                if task.statusEnum == .InProgress {
+                case .InProgress:
+                    Text(task.name)
+                        .fontWeight(.bold)
+                    Spacer()
                     Image(systemName: "tornado")
+                case .Open:
+                    Text(task.name)
+                    Spacer()
                 }
             }
         }
