@@ -9,17 +9,11 @@ import SwiftUI
 
 struct ManageTeamButton: View {
 
-    private enum Dimensions {
-        static let padding: CGFloat = 16.0
-    }
-
     var body: some View {
         HStack {
             Image(systemName: "person.3")
             Text("Manage Team")
-            Spacer()
         }
-        .padding(.leading, Dimensions.padding)
     }
 }
 

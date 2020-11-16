@@ -34,7 +34,6 @@ struct ProjectsView: View {
                 }
             }
             Spacer()
-            Button(action: { self.showingSheet = true }) { ManageTeamButton() }
             if let tasksRealm = tasksRealm {
                 NavigationLink( destination: TasksView(realm: tasksRealm, projectName: projectName),
                                 isActive: $showingTasks) {
@@ -42,6 +41,13 @@ struct ProjectsView: View {
             }
         }
         .navigationBarTitle("Projects", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Button(action: { self.showingSheet = true }) {
+                    ManageTeamButton()
+                }
+            }
+        }
         .sheet(isPresented: $showingSheet) { TeamsView() }
         .padding(.all, Dimensions.padding)
     }
