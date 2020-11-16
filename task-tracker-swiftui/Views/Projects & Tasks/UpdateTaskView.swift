@@ -48,7 +48,7 @@ struct UpdateTaskView: View {
                     }
                 }
                 if state.shouldIndicateActivity {
-                    ActivityIndicator()
+                    ProgressView("Updating Task")
                 }
             }
             .navigationBarTitle(Text("Change Task Status"), displayMode: .inline)
