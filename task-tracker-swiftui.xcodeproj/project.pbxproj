@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25DDCA2C66AEE2F29EF833DE /* Pods_task_tracker_swiftuiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0175324FB02C26F33D9EEC /* Pods_task_tracker_swiftuiTests.framework */; };
+		490A51802566EFD80067A337 /* OpaqueProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A517F2566EFD80067A337 /* OpaqueProgressView.swift */; };
 		49474284255163AF00FF9F51 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49474283255163AF00FF9F51 /* LoginView.swift */; };
 		49474289255163CC00FF9F51 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49474288255163CC00FF9F51 /* LogoutButton.swift */; };
 		4947428E255163EB00FF9F51 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947428D255163EB00FF9F51 /* SignupView.swift */; };
@@ -63,6 +64,7 @@
 		0D7C49F7C6A25CBBBD49DC02 /* Pods-task-tracker-swiftui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task-tracker-swiftui.debug.xcconfig"; path = "Target Support Files/Pods-task-tracker-swiftui/Pods-task-tracker-swiftui.debug.xcconfig"; sourceTree = "<group>"; };
 		19C4FFF3877FED308CD694B3 /* Pods-task-tracker-swiftuiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task-tracker-swiftuiTests.debug.xcconfig"; path = "Target Support Files/Pods-task-tracker-swiftuiTests/Pods-task-tracker-swiftuiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F33C0A83A43F0E7C0A887F1 /* Pods_task_tracker_swiftui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_task_tracker_swiftui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		490A517F2566EFD80067A337 /* OpaqueProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueProgressView.swift; sourceTree = "<group>"; };
 		49474283255163AF00FF9F51 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		49474288255163CC00FF9F51 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		4947428D255163EB00FF9F51 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				49CDF76A25515DC700DCFB28 /* CallToActionButton.swift */,
 				49CDF76F25515DDE00DCFB28 /* LabeledButton.swift */,
 				49F2187C2562DC7A00EFDE0B /* LastUpdate.swift */,
+				490A517F2566EFD80067A337 /* OpaqueProgressView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				49A7A380255D41B7008E9FA0 /* SampleData.swift in Sources */,
 				4947428E255163EB00FF9F51 /* SignupView.swift in Sources */,
 				49CDF75425515D6800DCFB28 /* LabeledText.swift in Sources */,
+				490A51802566EFD80067A337 /* OpaqueProgressView.swift in Sources */,
 				494742952551645C00FF9F51 /* ManageTeamButton.swift in Sources */,
 				494742C0255165DA00FF9F51 /* User.swift in Sources */,
 			);

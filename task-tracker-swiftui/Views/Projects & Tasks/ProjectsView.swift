@@ -68,6 +68,7 @@ struct ProjectsView: View {
                     self.state.error = "Failed to open realm: \(error.localizedDescription)"
                 }
             }, receiveValue: { realm in
+                print("Realm Project file location: \(realm.configuration.fileURL!.path)")
                 self.tasksRealm = realm
                 self.projectName = project.name ?? ""
                 self.showingTasks = true

@@ -48,6 +48,7 @@ class AppState: ObservableObject {
                     self.error = "Failed to log in and open realm: \(error.localizedDescription)"
                 }
             }, receiveValue: { realm in
+                print("Realm User file location: \(realm.configuration.fileURL!.path)")
                 self.user = realm.objects(User.self).first
             })
             .store(in: &cancellables)

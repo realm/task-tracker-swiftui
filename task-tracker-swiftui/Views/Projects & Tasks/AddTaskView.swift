@@ -37,7 +37,7 @@ struct AddTaskView: View {
                     }
                 }
                 if state.shouldIndicateActivity {
-                    ProgressView("Adding Task")
+                    OpaqueProgressView("Adding Task")
                 }
             }
             .navigationBarTitle(Text("Add Task"), displayMode: .inline)
