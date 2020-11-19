@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                 }
                 if state.shouldIndicateActivity {
-                    ProgressView("Working With Realm")
+                    OpaqueProgressView("Working With Realm")
                 }
             }
             .navigationBarItems(leading: state.loggedIn ? LogoutButton() : nil)

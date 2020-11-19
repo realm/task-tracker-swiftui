@@ -24,6 +24,7 @@ struct SignupView: View {
     var body: some View {
         ZStack {
             VStack(spacing: Dimensions.padding) {
+                Spacer()
                 InputField(title: "Email/Username",
                            text: self.$username)
                     .keyboardType(.emailAddress)
@@ -42,7 +43,7 @@ struct SignupView: View {
                 }
             }
             if state.shouldIndicateActivity {
-                ProgressView("Signing Up User")
+                OpaqueProgressView("Signing Up User")
             }
         }
         .padding(.horizontal, Dimensions.padding)
