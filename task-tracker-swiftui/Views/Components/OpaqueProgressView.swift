@@ -10,6 +10,12 @@ import SwiftUI
 struct OpaqueProgressView: View {
     var message: String?
 
+    private enum Dimensions {
+        static let padding: CGFloat = 100
+        static let bgColor = Color("Clear")
+        static let cornerRadius: CGFloat = 25
+    }
+
     init() {
         message = nil
     }
@@ -21,14 +27,14 @@ struct OpaqueProgressView: View {
     var body: some View {
         VStack {
             if let message = message {
-                OpaqueProgressView(message)
+                ProgressView(message)
             } else {
-                OpaqueProgressView()
+                ProgressView()
             }
         }
-            .padding(100)
-            .background(Color("Clear"))
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        .padding(Dimensions.padding)
+        .background(Dimensions.bgColor)
+        .clipShape(RoundedRectangle(cornerRadius: Dimensions.cornerRadius))
     }
 }
 
@@ -37,11 +43,26 @@ struct OpaquePreviewView_Previews: PreviewProvider {
         Group {
             AppearancePreviews(
                 Group {
-                    OpaqueProgressView()
-                    OpaqueProgressView("Some Text")
+                    ZStack {
+                        VStack {
+                            Text("Background Text")
+                                .padding(150)
+                                .background(Color.blue)
+                        }
+                        OpaqueProgressView()
+                    }
+                    ZStack {
+                        VStack {
+                            Text("Background Text")
+                                .padding(150)
+                                .background(Color.blue)
+                        }
+                        OpaqueProgressView("Some Text")
+                    }
                 }
             )
         }
-            .previewLayout(.sizeThatFits)
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }
