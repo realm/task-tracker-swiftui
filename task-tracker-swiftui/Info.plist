@@ -30,7 +30,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>iTask_icon_1024</string>
+		<string>iTask_icon_180</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
