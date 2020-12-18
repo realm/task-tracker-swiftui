@@ -52,7 +52,6 @@ struct LoginView: View {
     }
 
     private func signup(username: String, password: String) {
-//        state.shouldIndicateActivity = true
         if username.isEmpty || password.isEmpty {
             state.shouldIndicateActivity = false
             return
@@ -70,7 +69,6 @@ struct LoginView: View {
                 }
             }, receiveValue: {
                 self.state.error = nil
-//                self.presentationMode.wrappedValue.dismiss()
                 login(username: username, password: password)
             })
             .store(in: &state.cancellables)
@@ -82,7 +80,6 @@ struct LoginView: View {
             return
         }
         self.state.error = nil
-//        state.shouldIndicateActivity = true
         app.login(credentials: .emailPassword(email: username, password: password))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {
