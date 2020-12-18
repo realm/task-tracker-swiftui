@@ -53,6 +53,7 @@ struct ProjectsView: View {
     }
 
     func showTasks(_ project: Project) {
+        self.showingTasks = false
         state.shouldIndicateActivity = true
         let realmConfig = app.currentUser?.configuration(partitionValue: project.partition ?? "")
         guard var config = realmConfig else {
