@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LogoutButton: View {
     @EnvironmentObject var state: AppState
+
     var body: some View {
         Button("Log Out") {
             state.shouldIndicateActivity = true

@@ -14,10 +14,8 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    if state.loggedIn && state.user != nil {
-                        if state.user != nil {
-                            ProjectsView()
-                        }
+                    if state.loggedIn {
+                        ProjectsView()
                     } else {
                         LoginView()
                     }
@@ -33,6 +31,17 @@ struct ContentView: View {
             }
             .navigationBarItems(leading: state.loggedIn ? LogoutButton() : nil)
         }
+        .currentDeviceNavigationViewStyle(alwaysStacked: !state.loggedIn)
+    }
+}
+
+extension View {
+    public func currentDeviceNavigationViewStyle(alwaysStacked: Bool) -> AnyView {
+        if UIDevice.current.userInterfaceIdiom == .pad && !alwaysStacked {
+            return AnyView(self.navigationViewStyle(DefaultNavigationViewStyle()))
+        } else {
+            return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
+        }
     }
 }
 
@@ -43,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
                 ContentView()
                     .environmentObject(AppState())
                 Landscape(ContentView()
-                            .environmentObject(AppState()))
+                    .environmentObject(AppState()))
             }
         )
     }

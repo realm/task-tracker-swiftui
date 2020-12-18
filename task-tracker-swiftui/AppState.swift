@@ -21,7 +21,7 @@ class AppState: ObservableObject {
     var user: User?
 
     var loggedIn: Bool {
-        app.currentUser != nil && app.currentUser?.state == .loggedIn
+        app.currentUser != nil && app.currentUser?.state == .loggedIn && user != nil
     }
 
     init() {
