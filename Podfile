@@ -6,8 +6,6 @@ target 'task-tracker-swiftui' do
   use_frameworks!
 
   # Pods for task-tracker-swiftui
-  pod 'Realm', '=10.5.0'
-  pod 'RealmSwift', '=10.5.0'
   pod 'SwiftLint'
   
   target 'task-tracker-swiftuiTests' do
