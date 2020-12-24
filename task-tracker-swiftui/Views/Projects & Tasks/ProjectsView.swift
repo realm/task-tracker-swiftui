@@ -56,11 +56,10 @@ struct ProjectsView: View {
         self.showingTasks = false
         state.shouldIndicateActivity = true
         let realmConfig = app.currentUser?.configuration(partitionValue: project.partition ?? "")
-        guard var config = realmConfig else {
+        guard let config = realmConfig else {
             state.error = "Cannot get Realm config from current user"
             return
         }
-        config.objectTypes = [Task.self]
         Realm.asyncOpen(configuration: config)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { result in

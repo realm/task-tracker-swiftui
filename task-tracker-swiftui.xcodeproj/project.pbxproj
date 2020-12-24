@@ -330,6 +330,8 @@
 			dependencies = (
 			);
 			name = "task-tracker-swiftui";
+			packageProductDependencies = (
+			);
 			productName = "task-tracker-swiftui";
 			productReference = 49CDF70925515A5D00DCFB28 /* task-tracker-swiftui.app */;
 			productType = "com.apple.product-type.application";
@@ -404,6 +406,8 @@
 				Base,
 			);
 			mainGroup = 49CDF70025515A5D00DCFB28;
+			packageReferences = (
+			);
 			productRefGroup = 49CDF70A25515A5D00DCFB28 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
