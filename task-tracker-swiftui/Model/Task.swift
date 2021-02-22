@@ -14,7 +14,7 @@ enum TaskStatus: String {
     case Complete
 }
 
-class Task: Object {
+class Task: Object, ObjectKeyIdentifiable {
     @objc dynamic var _id: ObjectId = ObjectId.generate()
     @objc dynamic var _partition: String = ""
     @objc dynamic var name: String = ""

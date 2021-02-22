@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct TaskView: View {
-    var task: Task
+    @ObservedRealmObject var task: Task
 
     @State var showingUpdateSheet = false
 
@@ -41,6 +41,8 @@ struct TaskView: View {
         }
         .sheet(isPresented: $showingUpdateSheet) {
             UpdateTaskView(task: task)
+                .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "\(task._partition)"))
+
         }
         .padding(.horizontal, Dimensions.padding)
     }

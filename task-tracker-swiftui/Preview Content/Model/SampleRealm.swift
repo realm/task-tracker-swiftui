@@ -33,4 +33,16 @@ extension Realm: Samplable {
 
         return realm
     }
+    static func bootstrap() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+                realm.add(User.sample)
+                realm.add(Task.sample)
+            }
+        } catch {
+            print("Failed to bootstrap the default realm")
+        }
+    }
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A35212D2594B670006DCC46 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0A35212C2594B670006DCC46 /* SwiftPackageProductDependency */; };
+		0A35212D2594B670006DCC46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A35212C2594B670006DCC46 /* RealmSwift */; };
 		0A4EA3AC258CF49C0003F0E4 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA3AB258CF49B0003F0E4 /* CheckBox.swift */; };
 		25DDCA2C66AEE2F29EF833DE /* Pods_task_tracker_swiftuiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0175324FB02C26F33D9EEC /* Pods_task_tracker_swiftuiTests.framework */; };
 		490A51802566EFD80067A337 /* OpaqueProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A517F2566EFD80067A337 /* OpaqueProgressView.swift */; };
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A35212D2594B670006DCC46 /* BuildFile in Frameworks */,
+				0A35212D2594B670006DCC46 /* RealmSwift in Frameworks */,
 				FAE3B1C9D8F9A8D267E25D50 /* Pods_task_tracker_swiftui.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,7 +332,7 @@
 			);
 			name = "task-tracker-swiftui";
 			packageProductDependencies = (
-				0A35212C2594B670006DCC46 /* SwiftPackageProductDependency */,
+				0A35212C2594B670006DCC46 /* RealmSwift */,
 			);
 			productName = "task-tracker-swiftui";
 			productReference = 49CDF70925515A5D00DCFB28 /* task-tracker-swiftui.app */;
@@ -408,7 +408,7 @@
 			);
 			mainGroup = 49CDF70025515A5D00DCFB28;
 			packageReferences = (
-				0A35212B2594B670006DCC46 /* RemoteSwiftPackageReference */,
+				0A35212B2594B670006DCC46 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 49CDF70A25515A5D00DCFB28 /* Products */;
 			projectDirPath = "";
@@ -898,20 +898,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0A35212B2594B670006DCC46 /* RemoteSwiftPackageReference */ = {
+		0A35212B2594B670006DCC46 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.5.0;
+				minimumVersion = 10.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0A35212C2594B670006DCC46 /* SwiftPackageProductDependency */ = {
+		0A35212C2594B670006DCC46 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A35212B2594B670006DCC46 /* RemoteSwiftPackageReference */;
+			package = 0A35212B2594B670006DCC46 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

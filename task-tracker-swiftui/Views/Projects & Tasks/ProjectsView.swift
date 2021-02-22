@@ -12,10 +12,11 @@ struct ProjectsView: View {
 
     @EnvironmentObject var state: AppState
 
-    @State var tasksRealm: Realm?
     @State var projectName = ""
     @State var showingTasks = false
     @State var showingSheet = false
+    @State var projectToOpen: Project?
+    var isPreview = false
 
     private enum Dimensions {
         static let padding: CGFloat = 16.0
@@ -28,14 +29,20 @@ struct ProjectsView: View {
                     HStack {
                         LabeledButton(label: project.partition ?? "No partition",
                                       text: project.name ?? "No project name") {
-                            showTasks(project)
+                            projectToOpen = project
+                            showingTasks = true
                         }
                     }
                 }
             }
             Spacer()
-            if let tasksRealm = tasksRealm {
-                NavigationLink( destination: TasksView(realm: tasksRealm, projectName: projectName),
+            if isPreview {
+                NavigationLink( destination: TasksView(project: projectToOpen),
+                                isActive: $showingTasks) {
+                    EmptyView() }
+            } else {
+                NavigationLink( destination: TasksView(project: projectToOpen)
+                                    .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: projectToOpen?.partition ?? "")),
                                 isActive: $showingTasks) {
                     EmptyView() }
             }
@@ -51,31 +58,6 @@ struct ProjectsView: View {
         .sheet(isPresented: $showingSheet) { TeamsView() }
         .padding(.all, Dimensions.padding)
     }
-
-    func showTasks(_ project: Project) {
-        self.showingTasks = false
-        state.shouldIndicateActivity = true
-        let realmConfig = app.currentUser?.configuration(partitionValue: project.partition ?? "")
-        guard let config = realmConfig else {
-            state.error = "Cannot get Realm config from current user"
-            return
-        }
-        Realm.asyncOpen(configuration: config)
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { result in
-                state.shouldIndicateActivity = false
-                if case let .failure(error) = result {
-                    self.state.error = "Failed to open realm: \(error.localizedDescription)"
-                }
-            }, receiveValue: { realm in
-                print("Realm Project file location: \(realm.configuration.fileURL!.path)")
-                self.tasksRealm = realm
-                self.projectName = project.name ?? ""
-                self.showingTasks = true
-                state.shouldIndicateActivity = false
-            })
-            .store(in: &self.state.cancellables)
-    }
 }
 
 struct ProjectsView_Previews: PreviewProvider {
@@ -83,18 +65,14 @@ struct ProjectsView_Previews: PreviewProvider {
         let state = AppState()
         state.user = .sample
 
-        return AppearancePreviews(
-                Group {
+//        return AppearancePreviews(
+                return Group {
                     NavigationView {
-                        ProjectsView()
+                        ProjectsView(isPreview: true)
                     }
-                    Landscape(
-                        NavigationView {
-                            ProjectsView()
-                        }
-                    )
+
                 }
                 .environmentObject(state)
-            )
+//            )
     }
 }

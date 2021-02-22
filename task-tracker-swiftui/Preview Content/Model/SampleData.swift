@@ -43,4 +43,12 @@ extension Task: Samplable {
         task.status = "In progress"
         return task
     }
+
+    convenience init (_ task: Task) {
+        self.init()
+        name = task.name
+        _partition = task._partition
+        owner = task.owner
+        status = task.status
+    }
 }

@@ -5,6 +5,8 @@
 //  Created by Andrew Morgan on 03/11/2020.
 //
 
+// TODO: Propose a way to remove the need for these Realm functions to work with the data
+
 import SwiftUI
 import RealmSwift
 
@@ -15,14 +17,12 @@ struct AddTeamMemberView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var state: AppState
 
-    private enum Dimensions {
-        static let padding: CGFloat = 16.0
-    }
+    private let padding: CGFloat = 16.0
 
     var body: some View {
         NavigationView {
             ZStack {
-                VStack(spacing: Dimensions.padding) {
+                VStack(spacing: padding) {
                     Spacer()
                     InputField(title: "email address to add",
                                text: self.$email)
@@ -45,7 +45,7 @@ struct AddTeamMemberView: View {
             .navigationBarItems(
                 leading: Button(
                     action: { self.presentationMode.wrappedValue.dismiss() }) { Image(systemName: "xmark.circle") })
-            .padding(.horizontal, Dimensions.padding)
+            .padding(.horizontal, padding)
         }
     }
 

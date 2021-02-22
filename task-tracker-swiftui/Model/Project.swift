@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Project: EmbeddedObject {
+class Project: EmbeddedObject, ObjectKeyIdentifiable {
     @objc dynamic var name: String?
     @objc dynamic var partition: String?
     convenience init(partition: String, name: String) {
