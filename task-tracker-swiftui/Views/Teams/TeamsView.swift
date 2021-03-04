@@ -38,8 +38,6 @@ struct TeamsView: View {
             )
         }
         .sheet(isPresented: $showingAddTeamMember) {
-            // TODO: Not clear why we need to pass in the environmentObject, appears that it may
-            // be a bug – should test again in the future.
             AddTeamMemberView(refresh: fetchTeamMembers)
                 .environmentObject(state)
         }

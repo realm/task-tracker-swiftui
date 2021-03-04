@@ -9,11 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct TasksView: View {
-    let project: Project?
-
     @ObservedResults(Task.self, sortDescriptor: SortDescriptor(keyPath: "_id", ascending: true)) var tasks
     @EnvironmentObject var state: AppState
 
+    let project: Project?
     @State var showingSheet = false
 
     var body: some View {

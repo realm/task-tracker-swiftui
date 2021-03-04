@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct ProjectsView: View {
-
     @EnvironmentObject var state: AppState
 
     @State var projectName = ""
@@ -65,14 +64,11 @@ struct ProjectsView_Previews: PreviewProvider {
         let state = AppState()
         state.user = .sample
 
-//        return AppearancePreviews(
-                return Group {
-                    NavigationView {
-                        ProjectsView(isPreview: true)
-                    }
-
-                }
-                .environmentObject(state)
-//            )
+        return AppearancePreviews(
+            NavigationView {
+                ProjectsView(isPreview: true)
+                    .environmentObject(state)
+            }
+        )
     }
 }

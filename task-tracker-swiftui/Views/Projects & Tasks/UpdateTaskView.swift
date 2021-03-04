@@ -9,10 +9,8 @@ import SwiftUI
 import RealmSwift
 
 struct UpdateTaskView: View {
-    @ObservedRealmObject var task: Task
-    @Environment(\.realm) var realm
-
     @Environment(\.presentationMode) var presentationMode
+    @Binding var status: TaskStatus
 
     let padding: CGFloat = 16.0
 
@@ -20,19 +18,19 @@ struct UpdateTaskView: View {
         NavigationView {
             VStack(spacing: padding) {
                 Spacer()
-                if task.statusEnum != .Complete {
+                if status != .Complete {
                     CallToActionButton(
                         title: "Complete Task") {
                         updateStatus(.Complete)
                     }
                 }
-                if task.statusEnum != .Open {
+                if status != .Open {
                     CallToActionButton(
                         title: "Re-open Task") {
                         updateStatus(.Open)
                     }
                 }
-                if task.statusEnum != .InProgress {
+                if status != .InProgress {
                     CallToActionButton(
                         title: "Mark in Progress") {
                         updateStatus(.InProgress)
@@ -49,23 +47,15 @@ struct UpdateTaskView: View {
     }
 
     func updateStatus(_ newStatus: TaskStatus) {
-        do {
-            try realm.write {
-                task.statusEnum = newStatus
-                self.presentationMode.wrappedValue.dismiss()
-            }
-        } catch {
-            print("Unable to open Realm write transaction")
-        }
+        status = newStatus
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct UpdateTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        let task = Task(.sample)
-        
-        return Group {
-            UpdateTaskView(task: task)
-        }
+        AppearancePreviews(
+            UpdateTaskView(status: .constant(.Open))
+        )
     }
 }

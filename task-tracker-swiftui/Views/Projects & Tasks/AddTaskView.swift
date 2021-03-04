@@ -14,7 +14,6 @@ struct AddTaskView: View {
     @Environment(\.presentationMode) var presentationMode
 
     let partition: String
-
     @State var taskName = ""
 
     private enum Dimensions {
@@ -43,12 +42,6 @@ struct AddTaskView: View {
                 action: { self.presentationMode.wrappedValue.dismiss() }) { Image(systemName: "xmark.circle") })
         .padding(.horizontal, Dimensions.padding)
     }
-
-//    func addTask() {
-//        let task = Task(project: project, name: taskName)
-//        $tasks.append(task)
-//        self.presentationMode.wrappedValue.dismiss()
-//    }
 }
 
 struct AddTaskView_Previews: PreviewProvider {
