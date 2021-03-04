@@ -9,8 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct TaskView: View {
-    var task: Task
-
+    @ObservedRealmObject var task: Task
     @State var showingUpdateSheet = false
 
     private enum Dimensions {
@@ -40,7 +39,7 @@ struct TaskView: View {
             }
         }
         .sheet(isPresented: $showingUpdateSheet) {
-            UpdateTaskView(task: task)
+            UpdateTaskView(status: $task.statusEnum)
         }
         .padding(.horizontal, Dimensions.padding)
     }

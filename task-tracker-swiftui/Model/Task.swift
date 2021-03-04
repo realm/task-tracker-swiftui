@@ -14,12 +14,12 @@ enum TaskStatus: String {
     case Complete
 }
 
-class Task: Object {
-    @objc dynamic var _id: ObjectId = ObjectId.generate()
-    @objc dynamic var _partition: String = ""
-    @objc dynamic var name: String = ""
-    @objc dynamic var owner: String?
-    @objc dynamic var status: String = ""
+@objcMembers class Task: Object, ObjectKeyIdentifiable {
+    dynamic var _id: ObjectId = ObjectId.generate()
+    dynamic var _partition: String = ""
+    dynamic var name: String = ""
+    dynamic var owner: String?
+    dynamic var status: String = ""
     override static func primaryKey() -> String? {
         return "_id"
     }
@@ -37,6 +37,7 @@ class Task: Object {
         self.init()
         self._partition = partition
         self.name = name
+        self.statusEnum = .Open
     }
 }
 

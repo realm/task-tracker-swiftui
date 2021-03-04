@@ -5,6 +5,8 @@
 //  Created by Andrew Morgan on 03/11/2020.
 //
 
+// TODO: Propose a way to remove the need for these Realm functions to work with the data
+
 import SwiftUI
 import RealmSwift
 
@@ -36,8 +38,6 @@ struct TeamsView: View {
             )
         }
         .sheet(isPresented: $showingAddTeamMember) {
-            // TODO: Not clear why we need to pass in the environmentObject, appears that it may
-            // be a bug – should test again in the future.
             AddTeamMemberView(refresh: fetchTeamMembers)
                 .environmentObject(state)
         }
@@ -92,15 +92,6 @@ struct TeamsView: View {
 
 struct TeamsView_Previews: PreviewProvider {
     static var previews: some View {
-        AppearancePreviews(
-            Group {
-                TeamsView()
-                    .environmentObject(AppState())
-                Landscape(
-                    TeamsView()
-                        .environmentObject(AppState())
-                )
-            }
-        )
+        Text("Preview not available as view relies on calling Realm functions")
     }
 }

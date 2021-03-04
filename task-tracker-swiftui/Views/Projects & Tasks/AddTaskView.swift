@@ -9,11 +9,11 @@ import SwiftUI
 import RealmSwift
 
 struct AddTaskView: View {
-    let realm: Realm
+    @ObservedResults(Task.self) var tasks
 
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var state: AppState
 
+    let partition: String
     @State var taskName = ""
 
     private enum Dimensions {
@@ -22,52 +22,32 @@ struct AddTaskView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack(spacing: Dimensions.padding) {
-                    Spacer()
-                    InputField(title: "New task name",
-                               text: self.$taskName)
-                    CallToActionButton(
-                        title: "Add Task",
-                        action: addTask)
-                    Spacer()
-                    if let error = state.error {
-                        Text("Error: \(error)")
-                            .foregroundColor(Color.red)
-                    }
-                }
-                if state.shouldIndicateActivity {
-                    OpaqueProgressView("Adding Task")
-                }
+            VStack(spacing: Dimensions.padding) {
+                Spacer()
+                InputField(title: "New task name",
+                           text: self.$taskName)
+                CallToActionButton(
+                    title: "Add Task",
+                    action: {
+                        let task = Task(partition: partition, name: taskName)
+                        $tasks.append(task)
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
+                Spacer()
             }
-            .navigationBarTitle(Text("Add Task"), displayMode: .inline)
-            .navigationBarItems(
-                leading: Button(
-                    action: { self.presentationMode.wrappedValue.dismiss() }) { Image(systemName: "xmark.circle") })
-            .padding(.horizontal, Dimensions.padding)
         }
-    }
-
-    func addTask() {
-        guard let partition = realm.configuration.syncConfiguration?.partitionValue?.stringValue else {
-            state.error = "Internal error: missing Realm configuration"
-            return
-        }
-        let task = Task(partition: partition, name: taskName)
-        do {
-            try realm.write {
-                realm.add(task)
-                self.presentationMode.wrappedValue.dismiss()
-            }
-        } catch {
-            state.error = "Unable to open Realm write transaction"
-        }
+        .navigationBarTitle(Text("Add Task"), displayMode: .inline)
+        .navigationBarItems(
+            leading: Button(
+                action: { self.presentationMode.wrappedValue.dismiss() }) { Image(systemName: "xmark.circle") })
+        .padding(.horizontal, Dimensions.padding)
     }
 }
 
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskView(realm: .sample)
-            .environmentObject(AppState())
+        Realm.bootstrap()
+
+        return AddTaskView(partition: "Doesn't matter")
     }
 }

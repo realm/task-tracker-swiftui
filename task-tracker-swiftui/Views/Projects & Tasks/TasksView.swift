@@ -9,83 +9,41 @@ import SwiftUI
 import RealmSwift
 
 struct TasksView: View {
-    let realm: Realm
-    let projectName: String
-
+    @ObservedResults(Task.self, sortDescriptor: SortDescriptor(keyPath: "_id", ascending: true)) var tasks
     @EnvironmentObject var state: AppState
 
-    @State var realmNotificationToken: NotificationToken?
-    @State var tasks: Results<Task>?
-    @State var lastUpdate: Date?
+    let project: Project?
     @State var showingSheet = false
 
     var body: some View {
-        VStack {
-            if let tasks = tasks {
-                List {
-                    ForEach(tasks.freeze()) { task in
-                        if let tasksRealm = tasks.realm {
-                            TaskView(task: (tasksRealm.resolve(ThreadSafeReference(to: task)))!)
-                        }
-                    }
-                    .onDelete(perform: deleteTask)
-                }
-            } else {
-                Text("Loading...")
+        List {
+            ForEach(tasks) { task in
+                TaskView(task: task)
             }
-            if let lastUpdate = lastUpdate {
-                LastUpdate(date: lastUpdate)
-            }
+            .onDelete(perform: $tasks.remove)
         }
-        .navigationBarTitle("Tasks in \(projectName)", displayMode: .inline)
+        .navigationBarTitle("Tasks in \(project?.name ?? "")", displayMode: .inline)
         .navigationBarItems(trailing: Button(action: { self.showingSheet = true }) {
             Image(systemName: "plus.circle.fill")
                 .renderingMode(.original)
 
         })
-        .sheet(isPresented: $showingSheet) { AddTaskView(realm: realm) }
-        .onAppear(perform: loadData)
-        .onDisappear(perform: stopWatching)
-    }
-
-    func loadData() {
-        tasks = realm.objects(Task.self).sorted(byKeyPath: "_id")
-        realmNotificationToken = realm.observe { _, _  in
-            lastUpdate = Date()
-        }
-    }
-
-    func stopWatching() {
-        if let token = realmNotificationToken {
-            token.invalidate()
-        }
-    }
-
-    func deleteTask(at offsets: IndexSet) {
-        do {
-            try realm.write {
-                guard let tasks = tasks else {
-                    print("tasks not set")
-                    return
-                }
-                realm.delete(tasks[offsets.first!])
-            }
-        } catch {
-            state.error = "Unable to open Realm write transaction"
-        }
+        .sheet(isPresented: $showingSheet) { AddTaskView(partition: project?.partition ?? "") }
     }
 }
 
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
-        AppearancePreviews(
+        Realm.bootstrap()
+
+        return AppearancePreviews(
             Group {
                 NavigationView {
-                    TasksView(realm: .sample, projectName: "Sample Project")
+                    TasksView(project: .sample)
                 }
                 Landscape(
                     NavigationView {
-                        TasksView(realm: .sample, projectName: "Sample Project")
+                        TasksView(project: .sample)
                     }
                 )
             }
