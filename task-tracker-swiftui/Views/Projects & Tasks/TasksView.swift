@@ -19,8 +19,23 @@ struct TasksView: View {
         List {
             ForEach(tasks) { task in
                 TaskView(task: task)
+                    .swipeActions(edge: .leading) {
+                        if task.statusEnum == .Open || task.statusEnum == .InProgress {
+                            CompleteButton(task: task)
+                        }
+                        if task.statusEnum == .Open || task.statusEnum == .Complete {
+                            InProgressButton(task: task)
+                        }
+                        if task.statusEnum == .InProgress || task.statusEnum == .Complete {
+                            NotStartedButton(task: task)
+                        }
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive, action: { $tasks.remove(task) }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
             }
-            .onDelete(perform: $tasks.remove)
         }
         .navigationBarTitle("Tasks in \(project?.name ?? "")", displayMode: .inline)
         .navigationBarItems(trailing: Button(action: { self.showingSheet = true }) {
