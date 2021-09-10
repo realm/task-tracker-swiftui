@@ -40,10 +40,12 @@ struct ProjectsView: View {
                                 isActive: $showingTasks) {
                     EmptyView() }
             } else {
-                NavigationLink( destination: TasksView(project: projectToOpen)
-                                    .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: projectToOpen?.partition ?? "")),
-                                isActive: $showingTasks) {
-                    EmptyView() }
+                if let realmUser = app.currentUser {
+                    NavigationLink( destination: TasksView(project: projectToOpen)
+                                        .environment(\.realmConfiguration, realmUser.configuration(partitionValue: projectToOpen?.partition ?? "")),
+                                    isActive: $showingTasks) {
+                        EmptyView() }
+                }
             }
         }
         .navigationBarTitle("Projects", displayMode: .inline)
