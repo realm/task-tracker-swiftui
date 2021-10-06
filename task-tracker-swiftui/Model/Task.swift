@@ -14,12 +14,12 @@ enum TaskStatus: String {
     case Complete
 }
 
-@objcMembers class Task: Object, ObjectKeyIdentifiable {
-    dynamic var _id: ObjectId = ObjectId.generate()
-    dynamic var _partition: String = ""
-    dynamic var name: String = ""
-    dynamic var owner: String?
-    dynamic var status: String = ""
+class Task: Object, ObjectKeyIdentifiable {
+    @Persisted var _id: ObjectId = ObjectId.generate()
+    @Persisted var _partition: String = ""
+    @Persisted var name: String = ""
+    @Persisted var owner: String?
+    @Persisted var status: String = ""
     override static func primaryKey() -> String? {
         return "_id"
     }

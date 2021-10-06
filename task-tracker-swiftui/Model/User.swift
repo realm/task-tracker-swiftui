@@ -8,11 +8,11 @@
 import Foundation
 import RealmSwift
 
-@objcMembers class User: Object, ObjectKeyIdentifiable {
-    dynamic var _id: String = UUID().uuidString
-    dynamic var _partition: String = ""
-    dynamic var name: String = ""
-    let memberOf = RealmSwift.List<Project>()
+class User: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) dynamic var _id: String = UUID().uuidString
+    @Persisted var _partition: String = ""
+    @Persisted var name: String = ""
+    @Persisted var memberOf = RealmSwift.List<Project>()
 
     override static func primaryKey() -> String? {
         return "_id"
